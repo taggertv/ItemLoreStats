@@ -1,2 +1,8 @@
 Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.3
+Created-By: 1.7.0_07-b10 (Oracle Corporation)
+Class-Path: lib/spigot-1.7.2-R0.4-SNAPSHOT.jar lib/WorldGuard.jar lib/
+ Heroes.jar lib/WorldEdit.jar lib/SkillAPI.jar
+X-COMMENT: Main-Class will be added automatically by build
+Main-Class: itemlorestats.ItemLoreStats
 

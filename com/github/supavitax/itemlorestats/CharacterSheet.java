@@ -8,94 +8,94 @@
 /*   8:    */ 
 /*   9:    */ public class CharacterSheet
 /*  10:    */ {
-/*  11: 10 */   GearStats gearStats = new GearStats();
-/*  12: 11 */   SetBonuses setBonuses = new SetBonuses();
-/*  13: 12 */   Util_Colours util_Colours = new Util_Colours();
+/*  11: 11 */   GearStats gearStats = new GearStats();
+/*  12: 12 */   SetBonuses setBonuses = new SetBonuses();
+/*  13: 13 */   Util_Colours util_Colours = new Util_Colours();
 /*  14:    */   
 /*  15:    */   public void returnStats(Player player, double passHealth)
 /*  16:    */   {
-/*  17: 16 */     String armour = ItemLoreStats.plugin.getConfig().getString("statNames.armour");
-/*  18: 17 */     String dodge = ItemLoreStats.plugin.getConfig().getString("statNames.dodge");
-/*  19: 18 */     String block = ItemLoreStats.plugin.getConfig().getString("statNames.block");
-/*  20: 19 */     String critChance = ItemLoreStats.plugin.getConfig().getString("statNames.critChance");
-/*  21: 20 */     String critDamage = ItemLoreStats.plugin.getConfig().getString("statNames.critDamage");
-/*  22: 21 */     String damage = ItemLoreStats.plugin.getConfig().getString("statNames.damage");
-/*  23: 22 */     String health = ItemLoreStats.plugin.getConfig().getString("statNames.health");
-/*  24: 23 */     String healthRegen = ItemLoreStats.plugin.getConfig().getString("statNames.healthregen");
-/*  25: 24 */     String lifeSteal = ItemLoreStats.plugin.getConfig().getString("statNames.lifesteal");
-/*  26: 25 */     String reflect = ItemLoreStats.plugin.getConfig().getString("statNames.reflect");
-/*  27: 26 */     String fire = ItemLoreStats.plugin.getConfig().getString("statNames.fire");
-/*  28: 27 */     String ice = ItemLoreStats.plugin.getConfig().getString("statNames.ice");
-/*  29: 28 */     String poison = ItemLoreStats.plugin.getConfig().getString("statNames.poison");
-/*  30: 29 */     String wither = ItemLoreStats.plugin.getConfig().getString("statNames.wither");
-/*  31: 30 */     String harming = ItemLoreStats.plugin.getConfig().getString("statNames.harming");
-/*  32: 31 */     String blind = ItemLoreStats.plugin.getConfig().getString("statNames.blind");
-/*  33: 32 */     String xpmultiplier = ItemLoreStats.plugin.getConfig().getString("statNames.xpmultiplier");
-/*  34: 33 */     String movementspeed = ItemLoreStats.plugin.getConfig().getString("statNames.movementspeed");
+/*  17: 17 */     String armour = ItemLoreStats.plugin.getConfig().getString("statNames.armour");
+/*  18: 18 */     String dodge = ItemLoreStats.plugin.getConfig().getString("statNames.dodge");
+/*  19: 19 */     String block = ItemLoreStats.plugin.getConfig().getString("statNames.block");
+/*  20: 20 */     String critChance = ItemLoreStats.plugin.getConfig().getString("statNames.critChance");
+/*  21: 21 */     String critDamage = ItemLoreStats.plugin.getConfig().getString("statNames.critDamage");
+/*  22: 22 */     String damage = ItemLoreStats.plugin.getConfig().getString("statNames.damage");
+/*  23: 23 */     String health = ItemLoreStats.plugin.getConfig().getString("statNames.health");
+/*  24: 24 */     String healthRegen = ItemLoreStats.plugin.getConfig().getString("statNames.healthregen");
+/*  25: 25 */     String lifeSteal = ItemLoreStats.plugin.getConfig().getString("statNames.lifesteal");
+/*  26: 26 */     String reflect = ItemLoreStats.plugin.getConfig().getString("statNames.reflect");
+/*  27: 27 */     String fire = ItemLoreStats.plugin.getConfig().getString("statNames.fire");
+/*  28: 28 */     String ice = ItemLoreStats.plugin.getConfig().getString("statNames.ice");
+/*  29: 29 */     String poison = ItemLoreStats.plugin.getConfig().getString("statNames.poison");
+/*  30: 30 */     String wither = ItemLoreStats.plugin.getConfig().getString("statNames.wither");
+/*  31: 31 */     String harming = ItemLoreStats.plugin.getConfig().getString("statNames.harming");
+/*  32: 32 */     String blind = ItemLoreStats.plugin.getConfig().getString("statNames.blind");
+/*  33: 33 */     String xpmultiplier = ItemLoreStats.plugin.getConfig().getString("statNames.xpmultiplier");
+/*  34: 34 */     String movementspeed = ItemLoreStats.plugin.getConfig().getString("statNames.movementspeed");
 /*  35:    */     
-/*  36: 35 */     double armourModifier = this.setBonuses.checkHashMapArmour(player);
-/*  37: 36 */     double dodgeModifier = this.setBonuses.checkHashMapDodge(player);
-/*  38: 37 */     double blockModifier = this.setBonuses.checkHashMapBlock(player);
-/*  39: 38 */     double damageModifier = this.setBonuses.checkHashMapDamage(player);
-/*  40: 39 */     double critChanceModifier = this.setBonuses.checkHashMapCritChance(player);
-/*  41: 40 */     double critDamageModifier = this.setBonuses.checkHashMapCritDamage(player);
-/*  42: 41 */     double healthModifier = this.setBonuses.checkHashMapHealth(player);
-/*  43: 42 */     double healthRegenModifier = this.setBonuses.checkHashMapHealthRegen(player);
-/*  44: 43 */     double lifeStealModifier = this.setBonuses.checkHashMapLifeSteal(player);
-/*  45: 44 */     double reflectModifier = this.setBonuses.checkHashMapReflect(player);
-/*  46: 45 */     double fireModifier = this.setBonuses.checkHashMapFire(player);
-/*  47: 46 */     double iceModifier = this.setBonuses.checkHashMapIce(player);
-/*  48: 47 */     double poisonModifier = this.setBonuses.checkHashMapPoison(player);
-/*  49: 48 */     double witherModifier = this.setBonuses.checkHashMapWither(player);
-/*  50: 49 */     double harmingModifier = this.setBonuses.checkHashMapHarming(player);
-/*  51: 50 */     double blindModifier = this.setBonuses.checkHashMapBlind(player);
-/*  52: 51 */     double xpmultiplierModifier = this.setBonuses.checkHashMapXPMultiplier(player);
-/*  53: 52 */     double speedModifier = this.setBonuses.checkHashMapSpeed(player);
+/*  36: 36 */     double armourModifier = this.setBonuses.checkHashMapArmour(player);
+/*  37: 37 */     double dodgeModifier = this.setBonuses.checkHashMapDodge(player);
+/*  38: 38 */     double blockModifier = this.setBonuses.checkHashMapBlock(player);
+/*  39: 39 */     double damageModifier = this.setBonuses.checkHashMapDamage(player);
+/*  40: 40 */     double critChanceModifier = this.setBonuses.checkHashMapCritChance(player);
+/*  41: 41 */     double critDamageModifier = this.setBonuses.checkHashMapCritDamage(player);
+/*  42: 42 */     double healthModifier = this.setBonuses.checkHashMapHealth(player);
+/*  43: 43 */     double healthRegenModifier = this.setBonuses.checkHashMapHealthRegen(player);
+/*  44: 44 */     double lifeStealModifier = this.setBonuses.checkHashMapLifeSteal(player);
+/*  45: 45 */     double reflectModifier = this.setBonuses.checkHashMapReflect(player);
+/*  46: 46 */     double fireModifier = this.setBonuses.checkHashMapFire(player);
+/*  47: 47 */     double iceModifier = this.setBonuses.checkHashMapIce(player);
+/*  48: 48 */     double poisonModifier = this.setBonuses.checkHashMapPoison(player);
+/*  49: 49 */     double witherModifier = this.setBonuses.checkHashMapWither(player);
+/*  50: 50 */     double harmingModifier = this.setBonuses.checkHashMapHarming(player);
+/*  51: 51 */     double blindModifier = this.setBonuses.checkHashMapBlind(player);
+/*  52: 52 */     double xpmultiplierModifier = this.setBonuses.checkHashMapXPMultiplier(player);
+/*  53: 53 */     double speedModifier = this.setBonuses.checkHashMapSpeed(player);
 /*  54:    */     
-/*  55: 54 */     player.sendMessage(ChatColor.BLUE + ChatColor.BOLD + "Stats:");
-/*  56: 56 */     if (ItemLoreStats.plugin.isTool(player.getItemInHand().getType())) {
-/*  57: 57 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(armour) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getArmourGear(player) + this.gearStats.getArmourItemInHand(player) + armourModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(armour)) + "%");
+/*  55: 55 */     player.sendMessage(ChatColor.BLUE + "" + ChatColor.BOLD + "Stats:");
+/*  56: 57 */     if (ItemLoreStats.plugin.isTool(player.getItemInHand().getType())) {
+/*  57: 58 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(armour) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getArmourGear(player) + this.gearStats.getArmourItemInHand(player) + armourModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(armour)) + "%");
 /*  58:    */     } else {
-/*  59: 59 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(armour) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getArmourGear(player) + armourModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(armour)) + "%");
+/*  59: 60 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(armour) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getArmourGear(player) + armourModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(armour)) + "%");
 /*  60:    */     }
-/*  61: 62 */     if (ItemLoreStats.plugin.isTool(player.getItemInHand().getType())) {
-/*  62: 63 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(dodge) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getDodgeGear(player) + this.gearStats.getDodgeItemInHand(player) + dodgeModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(dodge)) + "%");
+/*  61: 63 */     if (ItemLoreStats.plugin.isTool(player.getItemInHand().getType())) {
+/*  62: 64 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(dodge) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getDodgeGear(player) + this.gearStats.getDodgeItemInHand(player) + dodgeModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(dodge)) + "%");
 /*  63:    */     } else {
-/*  64: 65 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(dodge) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getDodgeGear(player) + dodgeModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(dodge)) + "%");
+/*  64: 66 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(dodge) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getDodgeGear(player) + dodgeModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(dodge)) + "%");
 /*  65:    */     }
-/*  66: 68 */     if (ItemLoreStats.plugin.isTool(player.getItemInHand().getType())) {
-/*  67: 69 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(block) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getBlockGear(player) + this.gearStats.getBlockItemInHand(player) + blockModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(block)) + "%");
+/*  66: 69 */     if (ItemLoreStats.plugin.isTool(player.getItemInHand().getType())) {
+/*  67: 70 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(block) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getBlockGear(player) + this.gearStats.getBlockItemInHand(player) + blockModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(block)) + "%");
 /*  68:    */     } else {
-/*  69: 71 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(block) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getBlockGear(player) + blockModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(block)) + "%");
+/*  69: 72 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(block) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getBlockGear(player) + blockModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(block)) + "%");
 /*  70:    */     }
-/*  71: 74 */     if (ItemLoreStats.plugin.isTool(player.getItemInHand().getType())) {
-/*  72: 75 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(damage) + ": " + ChatColor.LIGHT_PURPLE + (Double.parseDouble(this.gearStats.getDamageGear(player).split("-")[0]) + Double.parseDouble(this.gearStats.getDamageItemInHand(player).split("-")[0]) + damageModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(damage)) + " - " + ChatColor.LIGHT_PURPLE + (Double.parseDouble(this.gearStats.getDamageGear(player).split("-")[1]) + Double.parseDouble(this.gearStats.getDamageItemInHand(player).split("-")[1]) + damageModifier));
+/*  71: 75 */     if (ItemLoreStats.plugin.isTool(player.getItemInHand().getType())) {
+/*  72: 76 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(damage) + ": " + ChatColor.LIGHT_PURPLE + (Double.parseDouble(this.gearStats.getDamageGear(player).split("-")[0]) + Double.parseDouble(this.gearStats.getDamageItemInHand(player).split("-")[0]) + damageModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(damage)) + " - " + ChatColor.LIGHT_PURPLE + (Double.parseDouble(this.gearStats.getDamageGear(player).split("-")[1]) + Double.parseDouble(this.gearStats.getDamageItemInHand(player).split("-")[1]) + damageModifier));
 /*  73:    */     } else {
-/*  74: 77 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(damage) + ": " + ChatColor.LIGHT_PURPLE + (Double.parseDouble(this.gearStats.getDamageGear(player).split("-")[0]) + damageModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(damage)) + " - " + ChatColor.LIGHT_PURPLE + (Double.parseDouble(this.gearStats.getDamageGear(player).split("-")[1]) + damageModifier));
+/*  74: 78 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(damage) + ": " + ChatColor.LIGHT_PURPLE + (Double.parseDouble(this.gearStats.getDamageGear(player).split("-")[0]) + damageModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(damage)) + " - " + ChatColor.LIGHT_PURPLE + (Double.parseDouble(this.gearStats.getDamageGear(player).split("-")[1]) + damageModifier));
 /*  75:    */     }
-/*  76: 80 */     if (ItemLoreStats.plugin.isTool(player.getItemInHand().getType())) {
-/*  77: 81 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(critChance) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getCritChanceGear(player) + this.gearStats.getCritChanceItemInHand(player) + critChanceModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(critChance)) + "%");
+/*  76: 81 */     if (ItemLoreStats.plugin.isTool(player.getItemInHand().getType())) {
+/*  77: 82 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(critChance) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getCritChanceGear(player) + this.gearStats.getCritChanceItemInHand(player) + critChanceModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(critChance)) + "%");
 /*  78:    */     } else {
-/*  79: 83 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(critChance) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getCritChanceGear(player) + critChanceModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(critChance)) + "%");
+/*  79: 84 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(critChance) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getCritChanceGear(player) + critChanceModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(critChance)) + "%");
 /*  80:    */     }
-/*  81: 86 */     if (ItemLoreStats.plugin.isTool(player.getItemInHand().getType())) {
-/*  82: 87 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(critDamage) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getCritDamageGear(player) + this.gearStats.getCritDamageItemInHand(player) + critDamageModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(critDamage)) + "%");
+/*  81: 87 */     if (ItemLoreStats.plugin.isTool(player.getItemInHand().getType())) {
+/*  82: 88 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(critDamage) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getCritDamageGear(player) + this.gearStats.getCritDamageItemInHand(player) + critDamageModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(critDamage)) + "%");
 /*  83:    */     } else {
-/*  84: 89 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(critDamage) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getCritDamageGear(player) + critDamageModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(critDamage)) + "%");
+/*  84: 90 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(critDamage) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getCritDamageGear(player) + critDamageModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(critDamage)) + "%");
 /*  85:    */     }
-/*  86: 92 */     player.sendMessage("    " + this.util_Colours.replaceTooltipColour(health) + ": " + ChatColor.LIGHT_PURPLE + (passHealth + healthModifier));
-/*  87: 94 */     if (ItemLoreStats.plugin.isTool(player.getItemInHand().getType()))
+/*  86: 93 */     player.sendMessage("    " + this.util_Colours.replaceTooltipColour(health) + ": " + ChatColor.LIGHT_PURPLE + (passHealth + healthModifier));
+/*  87: 95 */     if (ItemLoreStats.plugin.isTool(player.getItemInHand().getType()))
 /*  88:    */     {
-/*  89: 95 */       if (ItemLoreStats.plugin.getConfig().getInt("baseHealthRegen") < 1) {
-/*  90: 96 */         player.sendMessage("    " + this.util_Colours.replaceTooltipColour(healthRegen) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getHealthRegenGear(player) + this.gearStats.getHealthRegenItemInHand(player) + healthRegenModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(healthRegen)) + "%");
+/*  89: 96 */       if (ItemLoreStats.plugin.getConfig().getInt("baseHealthRegen") < 1) {
+/*  90: 97 */         player.sendMessage("    " + this.util_Colours.replaceTooltipColour(healthRegen) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getHealthRegenGear(player) + this.gearStats.getHealthRegenItemInHand(player) + healthRegenModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(healthRegen)) + "%");
 /*  91:    */       } else {
-/*  92: 98 */         player.sendMessage("    " + this.util_Colours.replaceTooltipColour(healthRegen) + ": " + ChatColor.LIGHT_PURPLE + (ItemLoreStats.plugin.getConfig().getInt("baseHealthRegen") + this.gearStats.getHealthRegenGear(player) + this.gearStats.getHealthRegenItemInHand(player) + healthRegenModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(healthRegen)) + "%");
+/*  92: 99 */         player.sendMessage("    " + this.util_Colours.replaceTooltipColour(healthRegen) + ": " + ChatColor.LIGHT_PURPLE + (ItemLoreStats.plugin.getConfig().getInt("baseHealthRegen") + this.gearStats.getHealthRegenGear(player) + this.gearStats.getHealthRegenItemInHand(player) + healthRegenModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(healthRegen)) + "%");
 /*  93:    */       }
 /*  94:    */     }
-/*  95:101 */     else if (ItemLoreStats.plugin.getConfig().getInt("baseHealthRegen") < 1) {
-/*  96:102 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(healthRegen) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getHealthRegenGear(player) + healthRegenModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(healthRegen)) + "%");
+/*  95:102 */     else if (ItemLoreStats.plugin.getConfig().getInt("baseHealthRegen") < 1) {
+/*  96:103 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(healthRegen) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getHealthRegenGear(player) + healthRegenModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(healthRegen)) + "%");
 /*  97:    */     } else {
-/*  98:104 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(healthRegen) + ": " + ChatColor.LIGHT_PURPLE + (ItemLoreStats.plugin.getConfig().getInt("baseHealthRegen") + this.gearStats.getHealthRegenGear(player) + healthRegenModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(healthRegen)) + "%");
+/*  98:105 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(healthRegen) + ": " + ChatColor.LIGHT_PURPLE + (ItemLoreStats.plugin.getConfig().getInt("baseHealthRegen") + this.gearStats.getHealthRegenGear(player) + healthRegenModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(healthRegen)) + "%");
 /*  99:    */     }
 /* 100:108 */     if (ItemLoreStats.plugin.isTool(player.getItemInHand().getType())) {
 /* 101:109 */       player.sendMessage("    " + this.util_Colours.replaceTooltipColour(lifeSteal) + ": " + ChatColor.LIGHT_PURPLE + (this.gearStats.getLifeStealGear(player) + this.gearStats.getLifeStealItemInHand(player) + lifeStealModifier) + this.util_Colours.replaceTooltipColour(this.util_Colours.extractTooltipColour(lifeSteal)) + "%");
@@ -151,7 +151,7 @@
 /* 151:    */ }
 
 
-/* Location:           C:\Users\Taggert\Downloads\ItemLoreStats.jar
+/* Location:           E:\ItemLoreStats.jar
  * Qualified Name:     com.github.supavitax.itemlorestats.CharacterSheet
  * JD-Core Version:    0.7.0.1
  */

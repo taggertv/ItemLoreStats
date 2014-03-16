@@ -15,22 +15,22 @@
 /*  15:    */   @EventHandler
 /*  16:    */   public void onBlockExplosion(EntityDamageEvent event)
 /*  17:    */   {
-/*  18: 13 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.BLOCK_EXPLOSION))
+/*  18: 18 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.BLOCK_EXPLOSION))
 /*  19:    */     {
-/*  20: 14 */       if (!(event.getEntity() instanceof Player)) {
-/*  21: 14 */         return;
+/*  20: 19 */       if (!(event.getEntity() instanceof Player)) {
+/*  21: 19 */         return;
 /*  22:    */       }
-/*  23: 16 */       Player player = (Player)event.getEntity();
-/*  24: 18 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
+/*  23: 21 */       Player player = (Player)event.getEntity();
+/*  24: 23 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
 /*  25:    */       {
-/*  26: 20 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.block_explosion") == 0) {
-/*  27: 20 */           return;
+/*  26: 25 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.block_explosion") == 0) {
+/*  27: 25 */           return;
 /*  28:    */         }
-/*  29: 22 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.block_explosion");
-/*  30: 24 */         if (newDamage > player.getHealth()) {
-/*  31: 25 */           event.setDamage(player.getHealth());
+/*  29: 27 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.block_explosion");
+/*  30: 29 */         if (newDamage > player.getHealth()) {
+/*  31: 30 */           event.setDamage(player.getHealth());
 /*  32:    */         } else {
-/*  33: 27 */           event.setDamage(newDamage);
+/*  33: 32 */           event.setDamage(newDamage);
 /*  34:    */         }
 /*  35:    */       }
 /*  36:    */     }
@@ -39,22 +39,22 @@
 /*  39:    */   @EventHandler
 /*  40:    */   public void onCactus(EntityDamageEvent event)
 /*  41:    */   {
-/*  42: 35 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.CONTACT))
+/*  42: 40 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.CONTACT))
 /*  43:    */     {
-/*  44: 36 */       if (!(event.getEntity() instanceof Player)) {
-/*  45: 36 */         return;
+/*  44: 41 */       if (!(event.getEntity() instanceof Player)) {
+/*  45: 41 */         return;
 /*  46:    */       }
-/*  47: 38 */       Player player = (Player)event.getEntity();
-/*  48: 40 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
+/*  47: 43 */       Player player = (Player)event.getEntity();
+/*  48: 45 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
 /*  49:    */       {
-/*  50: 42 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.cactus") == 0) {
-/*  51: 42 */           return;
+/*  50: 47 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.cactus") == 0) {
+/*  51: 47 */           return;
 /*  52:    */         }
-/*  53: 44 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.cactus");
-/*  54: 46 */         if (newDamage > player.getHealth()) {
-/*  55: 47 */           event.setDamage(player.getHealth());
+/*  53: 49 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.cactus");
+/*  54: 51 */         if (newDamage > player.getHealth()) {
+/*  55: 52 */           event.setDamage(player.getHealth());
 /*  56:    */         } else {
-/*  57: 49 */           event.setDamage(newDamage);
+/*  57: 54 */           event.setDamage(newDamage);
 /*  58:    */         }
 /*  59:    */       }
 /*  60:    */     }
@@ -63,22 +63,22 @@
 /*  63:    */   @EventHandler
 /*  64:    */   public void onDrowning(EntityDamageEvent event)
 /*  65:    */   {
-/*  66: 57 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.DROWNING))
+/*  66: 62 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.DROWNING))
 /*  67:    */     {
-/*  68: 58 */       if (!(event.getEntity() instanceof Player)) {
-/*  69: 58 */         return;
+/*  68: 63 */       if (!(event.getEntity() instanceof Player)) {
+/*  69: 63 */         return;
 /*  70:    */       }
-/*  71: 60 */       Player player = (Player)event.getEntity();
-/*  72: 62 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
+/*  71: 65 */       Player player = (Player)event.getEntity();
+/*  72: 67 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
 /*  73:    */       {
-/*  74: 64 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.drowning") == 0) {
-/*  75: 64 */           return;
+/*  74: 69 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.drowning") == 0) {
+/*  75: 69 */           return;
 /*  76:    */         }
-/*  77: 66 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.drowning");
-/*  78: 68 */         if (newDamage > player.getHealth()) {
-/*  79: 69 */           event.setDamage(player.getHealth());
+/*  77: 71 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.drowning");
+/*  78: 73 */         if (newDamage > player.getHealth()) {
+/*  79: 74 */           event.setDamage(player.getHealth());
 /*  80:    */         } else {
-/*  81: 71 */           event.setDamage(newDamage);
+/*  81: 76 */           event.setDamage(newDamage);
 /*  82:    */         }
 /*  83:    */       }
 /*  84:    */     }
@@ -87,22 +87,22 @@
 /*  87:    */   @EventHandler
 /*  88:    */   public void onEntityExplosion(EntityDamageEvent event)
 /*  89:    */   {
-/*  90: 79 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.ENTITY_EXPLOSION))
+/*  90: 84 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.ENTITY_EXPLOSION))
 /*  91:    */     {
-/*  92: 80 */       if (!(event.getEntity() instanceof Player)) {
-/*  93: 80 */         return;
+/*  92: 85 */       if (!(event.getEntity() instanceof Player)) {
+/*  93: 85 */         return;
 /*  94:    */       }
-/*  95: 82 */       Player player = (Player)event.getEntity();
-/*  96: 84 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
+/*  95: 87 */       Player player = (Player)event.getEntity();
+/*  96: 89 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
 /*  97:    */       {
-/*  98: 86 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.entity_explosion") == 0) {
-/*  99: 86 */           return;
+/*  98: 91 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.entity_explosion") == 0) {
+/*  99: 91 */           return;
 /* 100:    */         }
-/* 101: 88 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.entity_explosion");
-/* 102: 90 */         if (newDamage > player.getHealth()) {
-/* 103: 91 */           event.setDamage(player.getHealth());
+/* 101: 93 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.entity_explosion");
+/* 102: 95 */         if (newDamage > player.getHealth()) {
+/* 103: 96 */           event.setDamage(player.getHealth());
 /* 104:    */         } else {
-/* 105: 93 */           event.setDamage(newDamage);
+/* 105: 98 */           event.setDamage(newDamage);
 /* 106:    */         }
 /* 107:    */       }
 /* 108:    */     }
@@ -111,26 +111,26 @@
 /* 111:    */   @EventHandler
 /* 112:    */   public void onFallDamage(EntityDamageEvent event)
 /* 113:    */   {
-/* 114:101 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.FALL))
+/* 114:106 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.FALL))
 /* 115:    */     {
-/* 116:102 */       if (!(event.getEntity() instanceof Player)) {
-/* 117:102 */         return;
+/* 116:107 */       if (!(event.getEntity() instanceof Player)) {
+/* 117:107 */         return;
 /* 118:    */       }
-/* 119:104 */       Player player = (Player)event.getEntity();
-/* 120:106 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
+/* 119:109 */       Player player = (Player)event.getEntity();
+/* 120:111 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
 /* 121:    */       {
-/* 122:108 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.fall") == 0) {
-/* 123:108 */           return;
+/* 122:113 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.fall") == 0) {
+/* 123:113 */           return;
 /* 124:    */         }
-/* 125:110 */         double fallHeight = Double.parseDouble(String.valueOf(player.getFallDistance()).split("\\.")[0]) - 2.0D;
+/* 125:115 */         double fallHeight = Double.parseDouble(String.valueOf(player.getFallDistance()).split("\\.")[0]) - 2.0D;
 /* 126:    */         
-/* 127:112 */         double percentageOfHealth = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.fall");
+/* 127:117 */         double percentageOfHealth = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.fall");
 /* 128:    */         
-/* 129:114 */         double multiplyDamage = Double.parseDouble(String.valueOf(fallHeight)) * percentageOfHealth;
-/* 130:116 */         if (multiplyDamage > player.getHealth()) {
-/* 131:117 */           event.setDamage(player.getHealth());
+/* 129:119 */         double multiplyDamage = Double.parseDouble(String.valueOf(fallHeight)) * percentageOfHealth;
+/* 130:121 */         if (multiplyDamage > player.getHealth()) {
+/* 131:122 */           event.setDamage(player.getHealth());
 /* 132:    */         } else {
-/* 133:119 */           event.setDamage(multiplyDamage);
+/* 133:124 */           event.setDamage(multiplyDamage);
 /* 134:    */         }
 /* 135:    */       }
 /* 136:    */     }
@@ -139,22 +139,22 @@
 /* 139:    */   @EventHandler
 /* 140:    */   public void onFire(EntityDamageEvent event)
 /* 141:    */   {
-/* 142:127 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.FIRE))
+/* 142:132 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.FIRE))
 /* 143:    */     {
-/* 144:128 */       if (!(event.getEntity() instanceof Player)) {
-/* 145:128 */         return;
+/* 144:133 */       if (!(event.getEntity() instanceof Player)) {
+/* 145:133 */         return;
 /* 146:    */       }
-/* 147:130 */       Player player = (Player)event.getEntity();
-/* 148:132 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
+/* 147:135 */       Player player = (Player)event.getEntity();
+/* 148:137 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
 /* 149:    */       {
-/* 150:134 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.fire") == 0) {
-/* 151:134 */           return;
+/* 150:139 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.fire") == 0) {
+/* 151:139 */           return;
 /* 152:    */         }
-/* 153:136 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.fire");
-/* 154:138 */         if (newDamage > player.getHealth()) {
-/* 155:139 */           event.setDamage(player.getHealth());
+/* 153:141 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.fire");
+/* 154:143 */         if (newDamage > player.getHealth()) {
+/* 155:144 */           event.setDamage(player.getHealth());
 /* 156:    */         } else {
-/* 157:141 */           event.setDamage(newDamage);
+/* 157:146 */           event.setDamage(newDamage);
 /* 158:    */         }
 /* 159:    */       }
 /* 160:    */     }
@@ -163,22 +163,22 @@
 /* 163:    */   @EventHandler
 /* 164:    */   public void onFireTick(EntityDamageEvent event)
 /* 165:    */   {
-/* 166:149 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.FIRE_TICK))
+/* 166:154 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.FIRE_TICK))
 /* 167:    */     {
-/* 168:150 */       if (!(event.getEntity() instanceof Player)) {
-/* 169:150 */         return;
+/* 168:155 */       if (!(event.getEntity() instanceof Player)) {
+/* 169:155 */         return;
 /* 170:    */       }
-/* 171:152 */       Player player = (Player)event.getEntity();
-/* 172:154 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
+/* 171:157 */       Player player = (Player)event.getEntity();
+/* 172:159 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
 /* 173:    */       {
-/* 174:156 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.fire_tick") == 0) {
-/* 175:156 */           return;
+/* 174:161 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.fire_tick") == 0) {
+/* 175:161 */           return;
 /* 176:    */         }
-/* 177:158 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.fire_tick");
-/* 178:160 */         if (newDamage > player.getHealth()) {
-/* 179:161 */           event.setDamage(player.getHealth());
+/* 177:163 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.fire_tick");
+/* 178:165 */         if (newDamage > player.getHealth()) {
+/* 179:166 */           event.setDamage(player.getHealth());
 /* 180:    */         } else {
-/* 181:163 */           event.setDamage(newDamage);
+/* 181:168 */           event.setDamage(newDamage);
 /* 182:    */         }
 /* 183:    */       }
 /* 184:    */     }
@@ -187,22 +187,22 @@
 /* 187:    */   @EventHandler
 /* 188:    */   public void onLavaBurn(EntityDamageEvent event)
 /* 189:    */   {
-/* 190:171 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.LAVA))
+/* 190:176 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.LAVA))
 /* 191:    */     {
-/* 192:172 */       if (!(event.getEntity() instanceof Player)) {
-/* 193:172 */         return;
+/* 192:177 */       if (!(event.getEntity() instanceof Player)) {
+/* 193:177 */         return;
 /* 194:    */       }
-/* 195:174 */       Player player = (Player)event.getEntity();
-/* 196:176 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
+/* 195:179 */       Player player = (Player)event.getEntity();
+/* 196:181 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
 /* 197:    */       {
-/* 198:178 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.lava") == 0) {
-/* 199:178 */           return;
+/* 198:183 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.lava") == 0) {
+/* 199:183 */           return;
 /* 200:    */         }
-/* 201:180 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.lava");
-/* 202:182 */         if (newDamage > player.getHealth()) {
-/* 203:183 */           event.setDamage(player.getHealth());
+/* 201:185 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.lava");
+/* 202:187 */         if (newDamage > player.getHealth()) {
+/* 203:188 */           event.setDamage(player.getHealth());
 /* 204:    */         } else {
-/* 205:185 */           event.setDamage(newDamage);
+/* 205:190 */           event.setDamage(newDamage);
 /* 206:    */         }
 /* 207:    */       }
 /* 208:    */     }
@@ -211,22 +211,22 @@
 /* 211:    */   @EventHandler
 /* 212:    */   public void onLightningStrike(EntityDamageEvent event)
 /* 213:    */   {
-/* 214:193 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.LIGHTNING))
+/* 214:198 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.LIGHTNING))
 /* 215:    */     {
-/* 216:194 */       if (!(event.getEntity() instanceof Player)) {
-/* 217:194 */         return;
+/* 216:199 */       if (!(event.getEntity() instanceof Player)) {
+/* 217:199 */         return;
 /* 218:    */       }
-/* 219:196 */       Player player = (Player)event.getEntity();
-/* 220:198 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
+/* 219:201 */       Player player = (Player)event.getEntity();
+/* 220:203 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
 /* 221:    */       {
-/* 222:200 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.lightning") == 0) {
-/* 223:200 */           return;
+/* 222:205 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.lightning") == 0) {
+/* 223:205 */           return;
 /* 224:    */         }
-/* 225:202 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.lightning");
-/* 226:204 */         if (newDamage > player.getHealth()) {
-/* 227:205 */           event.setDamage(player.getHealth());
+/* 225:207 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.lightning");
+/* 226:209 */         if (newDamage > player.getHealth()) {
+/* 227:210 */           event.setDamage(player.getHealth());
 /* 228:    */         } else {
-/* 229:207 */           event.setDamage(newDamage);
+/* 229:212 */           event.setDamage(newDamage);
 /* 230:    */         }
 /* 231:    */       }
 /* 232:    */     }
@@ -235,22 +235,22 @@
 /* 235:    */   @EventHandler
 /* 236:    */   public void onMagic(EntityDamageEvent event)
 /* 237:    */   {
-/* 238:215 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.MAGIC))
+/* 238:220 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.MAGIC))
 /* 239:    */     {
-/* 240:216 */       if (!(event.getEntity() instanceof Player)) {
-/* 241:216 */         return;
+/* 240:221 */       if (!(event.getEntity() instanceof Player)) {
+/* 241:221 */         return;
 /* 242:    */       }
-/* 243:218 */       Player player = (Player)event.getEntity();
-/* 244:220 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
+/* 243:223 */       Player player = (Player)event.getEntity();
+/* 244:225 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
 /* 245:    */       {
-/* 246:222 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.magic") == 0) {
-/* 247:222 */           return;
+/* 246:227 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.magic") == 0) {
+/* 247:227 */           return;
 /* 248:    */         }
-/* 249:224 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.magic");
-/* 250:226 */         if (newDamage > player.getHealth()) {
-/* 251:227 */           event.setDamage(player.getHealth());
+/* 249:229 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.magic");
+/* 250:231 */         if (newDamage > player.getHealth()) {
+/* 251:232 */           event.setDamage(player.getHealth());
 /* 252:    */         } else {
-/* 253:229 */           event.setDamage(newDamage);
+/* 253:234 */           event.setDamage(newDamage);
 /* 254:    */         }
 /* 255:    */       }
 /* 256:    */     }
@@ -259,22 +259,22 @@
 /* 259:    */   @EventHandler
 /* 260:    */   public void onPoison(EntityDamageEvent event)
 /* 261:    */   {
-/* 262:237 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.POISON))
+/* 262:242 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.POISON))
 /* 263:    */     {
-/* 264:238 */       if (!(event.getEntity() instanceof Player)) {
-/* 265:238 */         return;
+/* 264:243 */       if (!(event.getEntity() instanceof Player)) {
+/* 265:243 */         return;
 /* 266:    */       }
-/* 267:240 */       Player player = (Player)event.getEntity();
-/* 268:242 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
+/* 267:245 */       Player player = (Player)event.getEntity();
+/* 268:247 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
 /* 269:    */       {
-/* 270:244 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.poison") == 0) {
-/* 271:244 */           return;
+/* 270:249 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.poison") == 0) {
+/* 271:249 */           return;
 /* 272:    */         }
-/* 273:246 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.poison");
-/* 274:248 */         if (newDamage > player.getHealth()) {
-/* 275:249 */           event.setDamage(player.getHealth());
+/* 273:251 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.poison");
+/* 274:253 */         if (newDamage > player.getHealth()) {
+/* 275:254 */           event.setDamage(player.getHealth());
 /* 276:    */         } else {
-/* 277:251 */           event.setDamage(newDamage);
+/* 277:256 */           event.setDamage(newDamage);
 /* 278:    */         }
 /* 279:    */       }
 /* 280:    */     }
@@ -283,22 +283,22 @@
 /* 283:    */   @EventHandler
 /* 284:    */   public void onStarvation(EntityDamageEvent event)
 /* 285:    */   {
-/* 286:259 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.STARVATION))
+/* 286:264 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.STARVATION))
 /* 287:    */     {
-/* 288:260 */       if (!(event.getEntity() instanceof Player)) {
-/* 289:260 */         return;
+/* 288:265 */       if (!(event.getEntity() instanceof Player)) {
+/* 289:265 */         return;
 /* 290:    */       }
-/* 291:262 */       Player player = (Player)event.getEntity();
-/* 292:264 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
+/* 291:267 */       Player player = (Player)event.getEntity();
+/* 292:269 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
 /* 293:    */       {
-/* 294:266 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.starvation") == 0) {
-/* 295:266 */           return;
+/* 294:271 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.starvation") == 0) {
+/* 295:271 */           return;
 /* 296:    */         }
-/* 297:268 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.starvation");
-/* 298:270 */         if (newDamage > player.getHealth()) {
-/* 299:271 */           event.setDamage(player.getHealth());
+/* 297:273 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.starvation");
+/* 298:275 */         if (newDamage > player.getHealth()) {
+/* 299:276 */           event.setDamage(player.getHealth());
 /* 300:    */         } else {
-/* 301:273 */           event.setDamage(newDamage);
+/* 301:278 */           event.setDamage(newDamage);
 /* 302:    */         }
 /* 303:    */       }
 /* 304:    */     }
@@ -307,22 +307,22 @@
 /* 307:    */   @EventHandler
 /* 308:    */   public void onSuffocation(EntityDamageEvent event)
 /* 309:    */   {
-/* 310:281 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.SUFFOCATION))
+/* 310:286 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.SUFFOCATION))
 /* 311:    */     {
-/* 312:282 */       if (!(event.getEntity() instanceof Player)) {
-/* 313:282 */         return;
+/* 312:287 */       if (!(event.getEntity() instanceof Player)) {
+/* 313:287 */         return;
 /* 314:    */       }
-/* 315:284 */       Player player = (Player)event.getEntity();
-/* 316:286 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
+/* 315:289 */       Player player = (Player)event.getEntity();
+/* 316:291 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
 /* 317:    */       {
-/* 318:288 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.suffocation") == 0) {
-/* 319:288 */           return;
+/* 318:293 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.suffocation") == 0) {
+/* 319:293 */           return;
 /* 320:    */         }
-/* 321:290 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.suffocation");
-/* 322:292 */         if (newDamage > player.getHealth()) {
-/* 323:293 */           event.setDamage(player.getHealth());
+/* 321:295 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.suffocation");
+/* 322:297 */         if (newDamage > player.getHealth()) {
+/* 323:298 */           event.setDamage(player.getHealth());
 /* 324:    */         } else {
-/* 325:295 */           event.setDamage(newDamage);
+/* 325:300 */           event.setDamage(newDamage);
 /* 326:    */         }
 /* 327:    */       }
 /* 328:    */     }
@@ -331,19 +331,19 @@
 /* 331:    */   @EventHandler
 /* 332:    */   public void onSuicide(EntityDamageEvent event)
 /* 333:    */   {
-/* 334:303 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.SUICIDE))
+/* 334:308 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.SUICIDE))
 /* 335:    */     {
-/* 336:304 */       if (!(event.getEntity() instanceof Player)) {
-/* 337:304 */         return;
+/* 336:309 */       if (!(event.getEntity() instanceof Player)) {
+/* 337:309 */         return;
 /* 338:    */       }
-/* 339:306 */       Player player = (Player)event.getEntity();
-/* 340:308 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
+/* 339:311 */       Player player = (Player)event.getEntity();
+/* 340:313 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
 /* 341:    */       {
-/* 342:310 */         double newDamage = player.getMaxHealth();
-/* 343:312 */         if (newDamage > player.getHealth()) {
-/* 344:313 */           event.setDamage(player.getHealth());
+/* 342:315 */         double newDamage = player.getMaxHealth();
+/* 343:317 */         if (newDamage > player.getHealth()) {
+/* 344:318 */           event.setDamage(player.getHealth());
 /* 345:    */         } else {
-/* 346:315 */           event.setDamage(newDamage);
+/* 346:320 */           event.setDamage(newDamage);
 /* 347:    */         }
 /* 348:    */       }
 /* 349:    */     }
@@ -352,22 +352,22 @@
 /* 352:    */   @EventHandler
 /* 353:    */   public void onThorns(EntityDamageEvent event)
 /* 354:    */   {
-/* 355:323 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.THORNS))
+/* 355:328 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.THORNS))
 /* 356:    */     {
-/* 357:324 */       if (!(event.getEntity() instanceof Player)) {
-/* 358:324 */         return;
+/* 357:329 */       if (!(event.getEntity() instanceof Player)) {
+/* 358:329 */         return;
 /* 359:    */       }
-/* 360:326 */       Player player = (Player)event.getEntity();
-/* 361:328 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
+/* 360:331 */       Player player = (Player)event.getEntity();
+/* 361:333 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
 /* 362:    */       {
-/* 363:330 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.thorns") == 0) {
-/* 364:330 */           return;
+/* 363:335 */         if (ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.thorns") == 0) {
+/* 364:335 */           return;
 /* 365:    */         }
-/* 366:332 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.thorns");
-/* 367:334 */         if (newDamage > player.getHealth()) {
-/* 368:335 */           event.setDamage(player.getHealth());
+/* 366:337 */         double newDamage = player.getMaxHealth() / 100.0D * ItemLoreStats.plugin.getConfig().getInt("environmentalDamage.thorns");
+/* 367:339 */         if (newDamage > player.getHealth()) {
+/* 368:340 */           event.setDamage(player.getHealth());
 /* 369:    */         } else {
-/* 370:337 */           event.setDamage(newDamage);
+/* 370:342 */           event.setDamage(newDamage);
 /* 371:    */         }
 /* 372:    */       }
 /* 373:    */     }
@@ -376,19 +376,19 @@
 /* 376:    */   @EventHandler
 /* 377:    */   public void onVoid(EntityDamageEvent event)
 /* 378:    */   {
-/* 379:345 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.VOID))
+/* 379:350 */     if (event.getCause().equals(EntityDamageEvent.DamageCause.VOID))
 /* 380:    */     {
-/* 381:346 */       if (!(event.getEntity() instanceof Player)) {
-/* 382:346 */         return;
+/* 381:351 */       if (!(event.getEntity() instanceof Player)) {
+/* 382:351 */         return;
 /* 383:    */       }
-/* 384:348 */       Player player = (Player)event.getEntity();
-/* 385:350 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
+/* 384:353 */       Player player = (Player)event.getEntity();
+/* 385:355 */       if (!ItemLoreStats.plugin.getConfig().getStringList("disabledInWorlds").contains(player.getWorld().getName()))
 /* 386:    */       {
-/* 387:352 */         double newDamage = player.getMaxHealth();
-/* 388:354 */         if (newDamage > player.getHealth()) {
-/* 389:355 */           event.setDamage(player.getHealth());
+/* 387:357 */         double newDamage = player.getMaxHealth();
+/* 388:359 */         if (newDamage > player.getHealth()) {
+/* 389:360 */           event.setDamage(player.getHealth());
 /* 390:    */         } else {
-/* 391:357 */           event.setDamage(newDamage);
+/* 391:362 */           event.setDamage(newDamage);
 /* 392:    */         }
 /* 393:    */       }
 /* 394:    */     }
@@ -396,7 +396,7 @@
 /* 396:    */ }
 
 
-/* Location:           C:\Users\Taggert\Downloads\ItemLoreStats.jar
+/* Location:           E:\ItemLoreStats.jar
  * Qualified Name:     com.github.supavitax.itemlorestats.EnvironmentalDamage
  * JD-Core Version:    0.7.0.1
  */

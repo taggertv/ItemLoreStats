@@ -13,463 +13,466 @@
 /*  13:    */ public class SetBonuses
 /*  14:    */ {
 /*  15:    */   private FileConfiguration PlayerDataConfig;
-/*  16: 13 */   GearStats gearStats = new GearStats();
-/*  17: 14 */   Util_Colours util_Colours = new Util_Colours();
+/*  16: 16 */   GearStats gearStats = new GearStats();
+/*  17: 17 */   Util_Colours util_Colours = new Util_Colours();
 /*  18:    */   
 /*  19:    */   public void updateSetBonus(Player player)
 /*  20:    */   {
 /*  21:    */     try
 /*  22:    */     {
-/*  23: 18 */       this.PlayerDataConfig = new YamlConfiguration();
-/*  24: 19 */       this.PlayerDataConfig.load(new File(ItemLoreStats.plugin.getDataFolder() + File.separator + "SavedItems" + File.separator + "SetBonuses.yml"));
+/*  23: 21 */       this.PlayerDataConfig = new YamlConfiguration();
+/*  24: 22 */       this.PlayerDataConfig.load(new File(ItemLoreStats.plugin.getDataFolder() + File.separator + "SavedItems" + File.separator + "SetBonuses.yml"));
 /*  25:    */       
-/*  26: 21 */       String gearArmour = "";
-/*  27: 22 */       String gearDodge = "";
-/*  28: 23 */       String gearBlock = "";
-/*  29: 24 */       String gearCritChance = "";
-/*  30: 25 */       String gearCritDamage = "";
-/*  31: 26 */       String gearDamage = "";
-/*  32: 27 */       String gearHealth = "";
-/*  33: 28 */       String gearHealthRegen = "";
-/*  34: 29 */       String gearLifeSteal = "";
-/*  35: 30 */       String gearReflect = "";
-/*  36: 31 */       String gearFire = "";
-/*  37: 32 */       String gearIce = "";
-/*  38: 33 */       String gearPoison = "";
-/*  39: 34 */       String gearWither = "";
-/*  40: 35 */       String gearHarming = "";
-/*  41: 36 */       String gearBlind = "";
-/*  42: 37 */       String gearXPMultiplier = "";
-/*  43: 38 */       String gearSpeed = "";
+/*  26: 24 */       String gearArmour = "";
+/*  27: 25 */       String gearDodge = "";
+/*  28: 26 */       String gearBlock = "";
+/*  29: 27 */       String gearCritChance = "";
+/*  30: 28 */       String gearCritDamage = "";
+/*  31: 29 */       String gearDamage = "";
+/*  32: 30 */       String gearHealth = "";
+/*  33: 31 */       String gearHealthRegen = "";
+/*  34: 32 */       String gearLifeSteal = "";
+/*  35: 33 */       String gearReflect = "";
+/*  36: 34 */       String gearFire = "";
+/*  37: 35 */       String gearIce = "";
+/*  38: 36 */       String gearPoison = "";
+/*  39: 37 */       String gearWither = "";
+/*  40: 38 */       String gearHarming = "";
+/*  41: 39 */       String gearBlind = "";
+/*  42: 40 */       String gearXPMultiplier = "";
+/*  43: 41 */       String gearSpeed = "";
 /*  44:    */       
-/*  45: 40 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".armour", Double.valueOf(0.0D));
-/*  46: 41 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".dodge", Double.valueOf(0.0D));
-/*  47: 42 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".block", Double.valueOf(0.0D));
-/*  48: 43 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".damage", Double.valueOf(0.0D));
-/*  49: 44 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".critChance", Double.valueOf(0.0D));
-/*  50: 45 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".critDamage", Double.valueOf(0.0D));
-/*  51: 46 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".health", Double.valueOf(0.0D));
-/*  52: 47 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".healthRegen", Double.valueOf(0.0D));
-/*  53: 48 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".lifeSteal", Double.valueOf(0.0D));
-/*  54: 49 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".reflect", Double.valueOf(0.0D));
-/*  55: 50 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".fire", Double.valueOf(0.0D));
-/*  56: 51 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".ice", Double.valueOf(0.0D));
-/*  57: 52 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".poison", Double.valueOf(0.0D));
-/*  58: 53 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".wither", Double.valueOf(0.0D));
-/*  59: 54 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".harming", Double.valueOf(0.0D));
-/*  60: 55 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".blind", Double.valueOf(0.0D));
-/*  61: 56 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".xpMultiplier", Double.valueOf(0.0D));
-/*  62: 57 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".speed", Double.valueOf(0.0D));
+/*  45: 43 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".armour", Double.valueOf(0.0D));
+/*  46: 44 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".dodge", Double.valueOf(0.0D));
+/*  47: 45 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".block", Double.valueOf(0.0D));
+/*  48: 46 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".damage", Double.valueOf(0.0D));
+/*  49: 47 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".critChance", Double.valueOf(0.0D));
+/*  50: 48 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".critDamage", Double.valueOf(0.0D));
+/*  51: 49 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".health", Double.valueOf(0.0D));
+/*  52: 50 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".healthRegen", Double.valueOf(0.0D));
+/*  53: 51 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".lifeSteal", Double.valueOf(0.0D));
+/*  54: 52 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".reflect", Double.valueOf(0.0D));
+/*  55: 53 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".fire", Double.valueOf(0.0D));
+/*  56: 54 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".ice", Double.valueOf(0.0D));
+/*  57: 55 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".poison", Double.valueOf(0.0D));
+/*  58: 56 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".wither", Double.valueOf(0.0D));
+/*  59: 57 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".harming", Double.valueOf(0.0D));
+/*  60: 58 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".blind", Double.valueOf(0.0D));
+/*  61: 59 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".xpMultiplier", Double.valueOf(0.0D));
+/*  62: 60 */       ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".speed", Double.valueOf(0.0D));
 /*  63:    */       
-/*  64: 59 */       int a = this.PlayerDataConfig.getKeys(false).size() - 1;
-/*  65:    */       do
-/*  66:    */       {
-/*  67: 60 */         int x = 0;
-/*  68: 61 */         String key = this.PlayerDataConfig.getKeys(false).toString().split(",")[a].replaceAll("\\[", "").replaceAll("\\]", "").trim();
-/*  69: 64 */         if (key != null)
-/*  70:    */         {
-/*  71: 65 */           if (this.gearStats.getSetBonusHead(player).equals(key)) {
-/*  72: 66 */             x++;
-/*  73:    */           }
-/*  74: 69 */           if (this.gearStats.getSetBonusChest(player).equals(key)) {
-/*  75: 70 */             x++;
+/*  64: 62 */       int a = this.PlayerDataConfig.getKeys(false).size() - 1;
+/*  65: 63 */       String key = null;
+/*  66:    */       do
+/*  67:    */       {
+/*  68: 65 */         int x = 0;
+/*  69: 66 */         if (this.PlayerDataConfig.getKeys(false).toString().length() > 2) {
+/*  70: 68 */           key = this.PlayerDataConfig.getKeys(false).toString().split(",")[a].replaceAll("\\[", "").replaceAll("\\]", "").trim();
+/*  71:    */         }
+/*  72: 71 */         if (key != null)
+/*  73:    */         {
+/*  74: 72 */           if (this.gearStats.getSetBonusHead(player).equals(key)) {
+/*  75: 73 */             x++;
 /*  76:    */           }
-/*  77: 73 */           if (this.gearStats.getSetBonusLegs(player).equals(key)) {
-/*  78: 74 */             x++;
+/*  77: 76 */           if (this.gearStats.getSetBonusChest(player).equals(key)) {
+/*  78: 77 */             x++;
 /*  79:    */           }
-/*  80: 77 */           if (this.gearStats.getSetBonusBoots(player).equals(key)) {
-/*  81: 78 */             x++;
+/*  80: 80 */           if (this.gearStats.getSetBonusLegs(player).equals(key)) {
+/*  81: 81 */             x++;
 /*  82:    */           }
-/*  83: 81 */           if (this.gearStats.getSetBonusItemInHand(player).equals(key)) {
-/*  84: 82 */             x++;
+/*  83: 84 */           if (this.gearStats.getSetBonusBoots(player).equals(key)) {
+/*  84: 85 */             x++;
 /*  85:    */           }
-/*  86: 85 */           for (int b = this.PlayerDataConfig.getConfigurationSection(key).getKeys(false).size() - 1; (b >= 0) && (b <= this.PlayerDataConfig.getConfigurationSection(key).getKeys(false).size() - 1); b--) {
-/*  87: 87 */             if (this.PlayerDataConfig.getConfigurationSection(key).getKeys(false).toString().split(",")[b].replaceAll("\\[", "").replaceAll("\\]", "").trim() != null)
-/*  88:    */             {
-/*  89: 88 */               String keyFromParentKey = this.PlayerDataConfig.getConfigurationSection(key).getKeys(false).toString().split(",")[b].replaceAll("\\[", "").replaceAll("\\]", "").trim();
-/*  90:    */               
-/*  91: 90 */               gearArmour = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".armour");
-/*  92: 91 */               gearDodge = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".dodge");
-/*  93: 92 */               gearBlock = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".block");
-/*  94: 93 */               gearCritChance = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".critChance");
-/*  95: 94 */               gearCritDamage = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".critDamage");
-/*  96: 95 */               gearDamage = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".damage");
-/*  97: 96 */               gearHealth = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".health");
-/*  98: 97 */               gearHealthRegen = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".healthRegen");
-/*  99: 98 */               gearLifeSteal = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".lifeSteal");
-/* 100: 99 */               gearReflect = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".reflect");
-/* 101:100 */               gearFire = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".fire");
-/* 102:101 */               gearIce = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".ice");
-/* 103:102 */               gearPoison = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".poison");
-/* 104:103 */               gearWither = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".wither");
-/* 105:104 */               gearHarming = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".harming");
-/* 106:105 */               gearBlind = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".blind");
-/* 107:106 */               gearXPMultiplier = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".xpMultiplier");
-/* 108:107 */               gearSpeed = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".movementSpeed");
-/* 109:109 */               if (x >= Integer.parseInt(keyFromParentKey))
-/* 110:    */               {
-/* 111:110 */                 if (gearArmour != null)
-/* 112:    */                 {
-/* 113:111 */                   player.sendMessage("armour hashmap set to " + Integer.parseInt(gearArmour));
-/* 114:112 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".armour", Double.valueOf(Double.parseDouble(gearArmour)));
-/* 115:    */                 }
-/* 116:    */                 else
-/* 117:    */                 {
-/* 118:114 */                   player.sendMessage("armour hashmap set to 0");
-/* 119:115 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".armour", Double.valueOf(0.0D));
-/* 120:    */                 }
-/* 121:118 */                 if (gearDodge != null)
-/* 122:    */                 {
-/* 123:119 */                   player.sendMessage("dodge hashmap set to " + Integer.parseInt(gearDodge));
-/* 124:120 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".dodge", Double.valueOf(Double.parseDouble(gearDodge)));
-/* 125:    */                 }
-/* 126:    */                 else
-/* 127:    */                 {
-/* 128:122 */                   player.sendMessage("dodge hashmap set to 0");
-/* 129:123 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".dodge", Double.valueOf(0.0D));
-/* 130:    */                 }
-/* 131:126 */                 if (gearBlock != null)
-/* 132:    */                 {
-/* 133:127 */                   player.sendMessage("block hashmap set to " + Integer.parseInt(gearBlock));
-/* 134:128 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".block", Double.valueOf(Double.parseDouble(gearBlock)));
-/* 135:    */                 }
-/* 136:    */                 else
-/* 137:    */                 {
-/* 138:130 */                   player.sendMessage("block hashmap set to 0");
-/* 139:131 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".block", Double.valueOf(0.0D));
-/* 140:    */                 }
-/* 141:134 */                 if (gearDamage != null)
-/* 142:    */                 {
-/* 143:135 */                   player.sendMessage("damage hashmap set to " + Integer.parseInt(gearDamage));
-/* 144:136 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".damage", Double.valueOf(Double.parseDouble(gearDamage)));
-/* 145:    */                 }
-/* 146:    */                 else
-/* 147:    */                 {
-/* 148:138 */                   player.sendMessage("damage hashmap set to 0");
-/* 149:139 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".damage", Double.valueOf(0.0D));
-/* 150:    */                 }
-/* 151:142 */                 if (gearCritChance != null)
-/* 152:    */                 {
-/* 153:143 */                   player.sendMessage("critchance hashmap set to " + Integer.parseInt(gearCritChance));
-/* 154:144 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".critChance", Double.valueOf(Double.parseDouble(gearCritChance)));
-/* 155:    */                 }
-/* 156:    */                 else
-/* 157:    */                 {
-/* 158:146 */                   player.sendMessage("critchance hashmap set to 0");
-/* 159:147 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".critChance", Double.valueOf(0.0D));
-/* 160:    */                 }
-/* 161:150 */                 if (gearCritDamage != null)
-/* 162:    */                 {
-/* 163:151 */                   player.sendMessage("critdamage hashmap set to " + Integer.parseInt(gearCritDamage));
-/* 164:152 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".critDamage", Double.valueOf(Double.parseDouble(gearCritDamage)));
-/* 165:    */                 }
-/* 166:    */                 else
-/* 167:    */                 {
-/* 168:154 */                   player.sendMessage("critdamage hashmap set to 0");
-/* 169:155 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".critDamage", Double.valueOf(0.0D));
-/* 170:    */                 }
-/* 171:158 */                 if (gearHealth != null)
-/* 172:    */                 {
-/* 173:159 */                   player.sendMessage("health hashmap set to " + Integer.parseInt(gearHealth));
-/* 174:160 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".health", Double.valueOf(Double.parseDouble(gearHealth)));
-/* 175:    */                 }
-/* 176:    */                 else
-/* 177:    */                 {
-/* 178:163 */                   player.sendMessage("health hashmap set to 0");
-/* 179:164 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".health", Double.valueOf(0.0D));
-/* 180:    */                 }
-/* 181:167 */                 if (gearHealthRegen != null)
-/* 182:    */                 {
-/* 183:168 */                   player.sendMessage("health regen hashmap set to " + Integer.parseInt(gearHealthRegen));
-/* 184:169 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".healthRegen", Double.valueOf(Double.parseDouble(gearHealthRegen)));
-/* 185:    */                 }
-/* 186:    */                 else
-/* 187:    */                 {
-/* 188:172 */                   player.sendMessage("health regen hashmap set to 0");
-/* 189:173 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".healthRegen", Double.valueOf(0.0D));
-/* 190:    */                 }
-/* 191:176 */                 if (gearLifeSteal != null)
-/* 192:    */                 {
-/* 193:177 */                   player.sendMessage("lifesteal hashmap set to " + Integer.parseInt(gearLifeSteal));
-/* 194:178 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".lifeSteal", Double.valueOf(Double.parseDouble(gearLifeSteal)));
-/* 195:    */                 }
-/* 196:    */                 else
-/* 197:    */                 {
-/* 198:180 */                   player.sendMessage("lifesteal hashmap set to 0");
-/* 199:181 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".lifeSteal", Double.valueOf(0.0D));
-/* 200:    */                 }
-/* 201:184 */                 if (gearReflect != null)
-/* 202:    */                 {
-/* 203:185 */                   player.sendMessage("reflect hashmap set to " + Integer.parseInt(gearReflect));
-/* 204:186 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".reflect", Double.valueOf(Double.parseDouble(gearReflect)));
-/* 205:    */                 }
-/* 206:    */                 else
-/* 207:    */                 {
-/* 208:188 */                   player.sendMessage("reflect hashmap set to 0");
-/* 209:189 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".reflect", Double.valueOf(0.0D));
-/* 210:    */                 }
-/* 211:192 */                 if (gearFire != null)
-/* 212:    */                 {
-/* 213:193 */                   player.sendMessage("fire hashmap set to " + Integer.parseInt(gearFire));
-/* 214:194 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".fire", Double.valueOf(Double.parseDouble(gearFire)));
-/* 215:    */                 }
-/* 216:    */                 else
-/* 217:    */                 {
-/* 218:196 */                   player.sendMessage("fire hashmap set to 0");
-/* 219:197 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".fire", Double.valueOf(0.0D));
-/* 220:    */                 }
-/* 221:200 */                 if (gearIce != null)
-/* 222:    */                 {
-/* 223:201 */                   player.sendMessage("ice hashmap set to " + Integer.parseInt(gearIce));
-/* 224:202 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".ice", Double.valueOf(Double.parseDouble(gearIce)));
-/* 225:    */                 }
-/* 226:    */                 else
-/* 227:    */                 {
-/* 228:204 */                   player.sendMessage("ice hashmap set to 0");
-/* 229:205 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".ice", Double.valueOf(0.0D));
-/* 230:    */                 }
-/* 231:208 */                 if (gearPoison != null)
-/* 232:    */                 {
-/* 233:209 */                   player.sendMessage("poison hashmap set to " + Integer.parseInt(gearPoison));
-/* 234:210 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".poison", Double.valueOf(Double.parseDouble(gearPoison)));
-/* 235:    */                 }
-/* 236:    */                 else
-/* 237:    */                 {
-/* 238:212 */                   player.sendMessage("poison hashmap set to 0");
-/* 239:213 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".poison", Double.valueOf(0.0D));
-/* 240:    */                 }
-/* 241:216 */                 if (gearWither != null)
-/* 242:    */                 {
-/* 243:217 */                   player.sendMessage("wither hashmap set to " + Integer.parseInt(gearWither));
-/* 244:218 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".wither", Double.valueOf(Double.parseDouble(gearWither)));
-/* 245:    */                 }
-/* 246:    */                 else
-/* 247:    */                 {
-/* 248:220 */                   player.sendMessage("wither hashmap set to 0");
-/* 249:221 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".wither", Double.valueOf(0.0D));
-/* 250:    */                 }
-/* 251:224 */                 if (gearHarming != null)
-/* 252:    */                 {
-/* 253:225 */                   player.sendMessage("harming hashmap set to " + Integer.parseInt(gearHarming));
-/* 254:226 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".harming", Double.valueOf(Double.parseDouble(gearHarming)));
-/* 255:    */                 }
-/* 256:    */                 else
-/* 257:    */                 {
-/* 258:228 */                   player.sendMessage("harming hashmap set to 0");
-/* 259:229 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".harming", Double.valueOf(0.0D));
-/* 260:    */                 }
-/* 261:232 */                 if (gearBlind != null)
-/* 262:    */                 {
-/* 263:233 */                   player.sendMessage("blind hashmap set to " + Integer.parseInt(gearBlind));
-/* 264:234 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".blind", Double.valueOf(Double.parseDouble(gearBlind)));
-/* 265:    */                 }
-/* 266:    */                 else
-/* 267:    */                 {
-/* 268:236 */                   player.sendMessage("blind hashmap set to 0");
-/* 269:237 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".blind", Double.valueOf(0.0D));
-/* 270:    */                 }
-/* 271:240 */                 if (gearXPMultiplier != null)
-/* 272:    */                 {
-/* 273:241 */                   player.sendMessage("xpMultiplier hashmap set to " + Integer.parseInt(gearXPMultiplier));
-/* 274:242 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".xpMultiplier", Double.valueOf(Double.parseDouble(gearXPMultiplier)));
-/* 275:    */                 }
-/* 276:    */                 else
-/* 277:    */                 {
-/* 278:244 */                   player.sendMessage("xpMultiplier hashmap set to 0");
-/* 279:245 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".xpMultiplier", Double.valueOf(0.0D));
-/* 280:    */                 }
-/* 281:248 */                 if (gearSpeed != null)
-/* 282:    */                 {
-/* 283:249 */                   player.sendMessage("speed hashmap set to " + Integer.parseInt(gearSpeed));
-/* 284:250 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".speed", Double.valueOf(Double.parseDouble(gearSpeed)));
-/* 285:    */                 }
-/* 286:    */                 else
-/* 287:    */                 {
-/* 288:252 */                   player.sendMessage("speed hashmap set to 0");
-/* 289:253 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".speed", Double.valueOf(0.0D));
-/* 290:    */                 }
-/* 291:    */               }
-/* 292:    */             }
-/* 293:    */           }
-/* 294:    */         }
-/* 295: 59 */         a--;
-/* 296: 59 */         if (a < 0) {
-/* 297:    */           break;
-/* 298:    */         }
-/* 299: 59 */       } while (a <= this.PlayerDataConfig.getKeys(false).size() - 1);
-/* 300:    */     }
-/* 301:    */     catch (Exception e)
-/* 302:    */     {
-/* 303:262 */       e.printStackTrace();
-/* 304:263 */       System.out.println("*********** Failed to load set bonus for " + player.getName() + "! ***********");
-/* 305:    */     }
-/* 306:    */   }
-/* 307:    */   
-/* 308:    */   public double checkHashMapArmour(Player player)
-/* 309:    */   {
-/* 310:268 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".armour") != null) {
-/* 311:269 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".armour")).doubleValue();
-/* 312:    */     }
-/* 313:271 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
-/* 314:272 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".armour")).doubleValue();
-/* 315:    */   }
-/* 316:    */   
-/* 317:    */   public double checkHashMapDodge(Player player)
-/* 318:    */   {
-/* 319:277 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".dodge") != null) {
-/* 320:278 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".dodge")).doubleValue();
-/* 321:    */     }
-/* 322:280 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
-/* 323:281 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".dodge")).doubleValue();
-/* 324:    */   }
-/* 325:    */   
-/* 326:    */   public double checkHashMapBlock(Player player)
-/* 327:    */   {
-/* 328:286 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".block") != null) {
-/* 329:287 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".block")).doubleValue();
-/* 330:    */     }
-/* 331:289 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
-/* 332:290 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".block")).doubleValue();
-/* 333:    */   }
-/* 334:    */   
-/* 335:    */   public double checkHashMapDamage(Player player)
-/* 336:    */   {
-/* 337:295 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".damage") != null) {
-/* 338:296 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".damage")).doubleValue();
-/* 339:    */     }
-/* 340:298 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
-/* 341:299 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".damage")).doubleValue();
-/* 342:    */   }
-/* 343:    */   
-/* 344:    */   public double checkHashMapCritChance(Player player)
-/* 345:    */   {
-/* 346:304 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".critChance") != null) {
-/* 347:305 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".critChance")).doubleValue();
-/* 348:    */     }
-/* 349:307 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
-/* 350:308 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".critChance")).doubleValue();
-/* 351:    */   }
-/* 352:    */   
-/* 353:    */   public double checkHashMapCritDamage(Player player)
-/* 354:    */   {
-/* 355:313 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".critDamage") != null) {
-/* 356:314 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".critDamage")).doubleValue();
-/* 357:    */     }
-/* 358:316 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
-/* 359:317 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".critDamage")).doubleValue();
-/* 360:    */   }
-/* 361:    */   
-/* 362:    */   public double checkHashMapHealth(Player player)
-/* 363:    */   {
-/* 364:322 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".health") != null) {
-/* 365:323 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".health")).doubleValue();
-/* 366:    */     }
-/* 367:325 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
-/* 368:326 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".health")).doubleValue();
-/* 369:    */   }
-/* 370:    */   
-/* 371:    */   public double checkHashMapHealthRegen(Player player)
-/* 372:    */   {
-/* 373:331 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".healthRegen") != null) {
-/* 374:332 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".healthRegen")).doubleValue();
-/* 375:    */     }
-/* 376:334 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
-/* 377:335 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".healthRegen")).doubleValue();
-/* 378:    */   }
-/* 379:    */   
-/* 380:    */   public double checkHashMapLifeSteal(Player player)
-/* 381:    */   {
-/* 382:340 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".lifeSteal") != null) {
-/* 383:341 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".lifeSteal")).doubleValue();
-/* 384:    */     }
-/* 385:343 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
-/* 386:344 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".lifeSteal")).doubleValue();
-/* 387:    */   }
-/* 388:    */   
-/* 389:    */   public double checkHashMapReflect(Player player)
-/* 390:    */   {
-/* 391:349 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".reflect") != null) {
-/* 392:350 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".reflect")).doubleValue();
-/* 393:    */     }
-/* 394:352 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
-/* 395:353 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".reflect")).doubleValue();
-/* 396:    */   }
-/* 397:    */   
-/* 398:    */   public double checkHashMapFire(Player player)
-/* 399:    */   {
-/* 400:358 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".fire") != null) {
-/* 401:359 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".fire")).doubleValue();
-/* 402:    */     }
-/* 403:361 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
-/* 404:362 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".fire")).doubleValue();
-/* 405:    */   }
-/* 406:    */   
-/* 407:    */   public double checkHashMapIce(Player player)
-/* 408:    */   {
-/* 409:367 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".ice") != null) {
-/* 410:368 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".ice")).doubleValue();
-/* 411:    */     }
-/* 412:370 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
-/* 413:371 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".ice")).doubleValue();
-/* 414:    */   }
-/* 415:    */   
-/* 416:    */   public double checkHashMapPoison(Player player)
-/* 417:    */   {
-/* 418:376 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".poison") != null) {
-/* 419:377 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".poison")).doubleValue();
-/* 420:    */     }
-/* 421:379 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
-/* 422:380 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".poison")).doubleValue();
-/* 423:    */   }
-/* 424:    */   
-/* 425:    */   public double checkHashMapWither(Player player)
-/* 426:    */   {
-/* 427:385 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".wither") != null) {
-/* 428:386 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".wither")).doubleValue();
-/* 429:    */     }
-/* 430:388 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
-/* 431:389 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".wither")).doubleValue();
-/* 432:    */   }
-/* 433:    */   
-/* 434:    */   public double checkHashMapHarming(Player player)
-/* 435:    */   {
-/* 436:394 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".harming") != null) {
-/* 437:395 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".harming")).doubleValue();
-/* 438:    */     }
-/* 439:397 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
-/* 440:398 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".harming")).doubleValue();
-/* 441:    */   }
-/* 442:    */   
-/* 443:    */   public double checkHashMapBlind(Player player)
-/* 444:    */   {
-/* 445:403 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".blind") != null) {
-/* 446:404 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".blind")).doubleValue();
-/* 447:    */     }
-/* 448:406 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
-/* 449:407 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".blind")).doubleValue();
-/* 450:    */   }
-/* 451:    */   
-/* 452:    */   public double checkHashMapXPMultiplier(Player player)
-/* 453:    */   {
-/* 454:412 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".xpMultiplier") != null) {
-/* 455:413 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".xpMultiplier")).doubleValue();
-/* 456:    */     }
-/* 457:415 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
-/* 458:416 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".xpMultiplier")).doubleValue();
-/* 459:    */   }
-/* 460:    */   
-/* 461:    */   public double checkHashMapSpeed(Player player)
-/* 462:    */   {
-/* 463:421 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".speed") != null) {
-/* 464:422 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".speed")).doubleValue();
-/* 465:    */     }
-/* 466:424 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
-/* 467:425 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".speed")).doubleValue();
-/* 468:    */   }
-/* 469:    */ }
+/*  86: 88 */           if (this.gearStats.getSetBonusItemInHand(player).equals(key)) {
+/*  87: 89 */             x++;
+/*  88:    */           }
+/*  89: 92 */           for (int b = this.PlayerDataConfig.getConfigurationSection(key).getKeys(false).size() - 1; (b >= 0) && (b <= this.PlayerDataConfig.getConfigurationSection(key).getKeys(false).size() - 1); b--) {
+/*  90: 94 */             if (this.PlayerDataConfig.getConfigurationSection(key).getKeys(false).toString().split(",")[b].replaceAll("\\[", "").replaceAll("\\]", "").trim() != null)
+/*  91:    */             {
+/*  92: 95 */               String keyFromParentKey = this.PlayerDataConfig.getConfigurationSection(key).getKeys(false).toString().split(",")[b].replaceAll("\\[", "").replaceAll("\\]", "").trim();
+/*  93:    */               
+/*  94: 97 */               gearArmour = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".armour");
+/*  95: 98 */               gearDodge = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".dodge");
+/*  96: 99 */               gearBlock = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".block");
+/*  97:100 */               gearCritChance = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".critChance");
+/*  98:101 */               gearCritDamage = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".critDamage");
+/*  99:102 */               gearDamage = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".damage");
+/* 100:103 */               gearHealth = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".health");
+/* 101:104 */               gearHealthRegen = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".healthRegen");
+/* 102:105 */               gearLifeSteal = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".lifeSteal");
+/* 103:106 */               gearReflect = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".reflect");
+/* 104:107 */               gearFire = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".fire");
+/* 105:108 */               gearIce = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".ice");
+/* 106:109 */               gearPoison = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".poison");
+/* 107:110 */               gearWither = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".wither");
+/* 108:111 */               gearHarming = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".harming");
+/* 109:112 */               gearBlind = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".blind");
+/* 110:113 */               gearXPMultiplier = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".xpMultiplier");
+/* 111:114 */               gearSpeed = this.PlayerDataConfig.getString(key + "." + keyFromParentKey + ".movementSpeed");
+/* 112:116 */               if (x >= Integer.parseInt(keyFromParentKey))
+/* 113:    */               {
+/* 114:117 */                 if (gearArmour != null)
+/* 115:    */                 {
+/* 116:118 */                   player.sendMessage("armour hashmap set to " + Integer.parseInt(gearArmour));
+/* 117:119 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".armour", Double.valueOf(Double.parseDouble(gearArmour)));
+/* 118:    */                 }
+/* 119:    */                 else
+/* 120:    */                 {
+/* 121:121 */                   player.sendMessage("armour hashmap set to 0");
+/* 122:122 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".armour", Double.valueOf(0.0D));
+/* 123:    */                 }
+/* 124:125 */                 if (gearDodge != null)
+/* 125:    */                 {
+/* 126:126 */                   player.sendMessage("dodge hashmap set to " + Integer.parseInt(gearDodge));
+/* 127:127 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".dodge", Double.valueOf(Double.parseDouble(gearDodge)));
+/* 128:    */                 }
+/* 129:    */                 else
+/* 130:    */                 {
+/* 131:129 */                   player.sendMessage("dodge hashmap set to 0");
+/* 132:130 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".dodge", Double.valueOf(0.0D));
+/* 133:    */                 }
+/* 134:133 */                 if (gearBlock != null)
+/* 135:    */                 {
+/* 136:134 */                   player.sendMessage("block hashmap set to " + Integer.parseInt(gearBlock));
+/* 137:135 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".block", Double.valueOf(Double.parseDouble(gearBlock)));
+/* 138:    */                 }
+/* 139:    */                 else
+/* 140:    */                 {
+/* 141:137 */                   player.sendMessage("block hashmap set to 0");
+/* 142:138 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".block", Double.valueOf(0.0D));
+/* 143:    */                 }
+/* 144:141 */                 if (gearDamage != null)
+/* 145:    */                 {
+/* 146:142 */                   player.sendMessage("damage hashmap set to " + Integer.parseInt(gearDamage));
+/* 147:143 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".damage", Double.valueOf(Double.parseDouble(gearDamage)));
+/* 148:    */                 }
+/* 149:    */                 else
+/* 150:    */                 {
+/* 151:145 */                   player.sendMessage("damage hashmap set to 0");
+/* 152:146 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".damage", Double.valueOf(0.0D));
+/* 153:    */                 }
+/* 154:149 */                 if (gearCritChance != null)
+/* 155:    */                 {
+/* 156:150 */                   player.sendMessage("critchance hashmap set to " + Integer.parseInt(gearCritChance));
+/* 157:151 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".critChance", Double.valueOf(Double.parseDouble(gearCritChance)));
+/* 158:    */                 }
+/* 159:    */                 else
+/* 160:    */                 {
+/* 161:153 */                   player.sendMessage("critchance hashmap set to 0");
+/* 162:154 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".critChance", Double.valueOf(0.0D));
+/* 163:    */                 }
+/* 164:157 */                 if (gearCritDamage != null)
+/* 165:    */                 {
+/* 166:158 */                   player.sendMessage("critdamage hashmap set to " + Integer.parseInt(gearCritDamage));
+/* 167:159 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".critDamage", Double.valueOf(Double.parseDouble(gearCritDamage)));
+/* 168:    */                 }
+/* 169:    */                 else
+/* 170:    */                 {
+/* 171:161 */                   player.sendMessage("critdamage hashmap set to 0");
+/* 172:162 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".critDamage", Double.valueOf(0.0D));
+/* 173:    */                 }
+/* 174:165 */                 if (gearHealth != null)
+/* 175:    */                 {
+/* 176:166 */                   player.sendMessage("health hashmap set to " + Integer.parseInt(gearHealth));
+/* 177:167 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".health", Double.valueOf(Double.parseDouble(gearHealth)));
+/* 178:    */                 }
+/* 179:    */                 else
+/* 180:    */                 {
+/* 181:170 */                   player.sendMessage("health hashmap set to 0");
+/* 182:171 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".health", Double.valueOf(0.0D));
+/* 183:    */                 }
+/* 184:174 */                 if (gearHealthRegen != null)
+/* 185:    */                 {
+/* 186:175 */                   player.sendMessage("health regen hashmap set to " + Integer.parseInt(gearHealthRegen));
+/* 187:176 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".healthRegen", Double.valueOf(Double.parseDouble(gearHealthRegen)));
+/* 188:    */                 }
+/* 189:    */                 else
+/* 190:    */                 {
+/* 191:179 */                   player.sendMessage("health regen hashmap set to 0");
+/* 192:180 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".healthRegen", Double.valueOf(0.0D));
+/* 193:    */                 }
+/* 194:183 */                 if (gearLifeSteal != null)
+/* 195:    */                 {
+/* 196:184 */                   player.sendMessage("lifesteal hashmap set to " + Integer.parseInt(gearLifeSteal));
+/* 197:185 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".lifeSteal", Double.valueOf(Double.parseDouble(gearLifeSteal)));
+/* 198:    */                 }
+/* 199:    */                 else
+/* 200:    */                 {
+/* 201:187 */                   player.sendMessage("lifesteal hashmap set to 0");
+/* 202:188 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".lifeSteal", Double.valueOf(0.0D));
+/* 203:    */                 }
+/* 204:191 */                 if (gearReflect != null)
+/* 205:    */                 {
+/* 206:192 */                   player.sendMessage("reflect hashmap set to " + Integer.parseInt(gearReflect));
+/* 207:193 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".reflect", Double.valueOf(Double.parseDouble(gearReflect)));
+/* 208:    */                 }
+/* 209:    */                 else
+/* 210:    */                 {
+/* 211:195 */                   player.sendMessage("reflect hashmap set to 0");
+/* 212:196 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".reflect", Double.valueOf(0.0D));
+/* 213:    */                 }
+/* 214:199 */                 if (gearFire != null)
+/* 215:    */                 {
+/* 216:200 */                   player.sendMessage("fire hashmap set to " + Integer.parseInt(gearFire));
+/* 217:201 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".fire", Double.valueOf(Double.parseDouble(gearFire)));
+/* 218:    */                 }
+/* 219:    */                 else
+/* 220:    */                 {
+/* 221:203 */                   player.sendMessage("fire hashmap set to 0");
+/* 222:204 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".fire", Double.valueOf(0.0D));
+/* 223:    */                 }
+/* 224:207 */                 if (gearIce != null)
+/* 225:    */                 {
+/* 226:208 */                   player.sendMessage("ice hashmap set to " + Integer.parseInt(gearIce));
+/* 227:209 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".ice", Double.valueOf(Double.parseDouble(gearIce)));
+/* 228:    */                 }
+/* 229:    */                 else
+/* 230:    */                 {
+/* 231:211 */                   player.sendMessage("ice hashmap set to 0");
+/* 232:212 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".ice", Double.valueOf(0.0D));
+/* 233:    */                 }
+/* 234:215 */                 if (gearPoison != null)
+/* 235:    */                 {
+/* 236:216 */                   player.sendMessage("poison hashmap set to " + Integer.parseInt(gearPoison));
+/* 237:217 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".poison", Double.valueOf(Double.parseDouble(gearPoison)));
+/* 238:    */                 }
+/* 239:    */                 else
+/* 240:    */                 {
+/* 241:219 */                   player.sendMessage("poison hashmap set to 0");
+/* 242:220 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".poison", Double.valueOf(0.0D));
+/* 243:    */                 }
+/* 244:223 */                 if (gearWither != null)
+/* 245:    */                 {
+/* 246:224 */                   player.sendMessage("wither hashmap set to " + Integer.parseInt(gearWither));
+/* 247:225 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".wither", Double.valueOf(Double.parseDouble(gearWither)));
+/* 248:    */                 }
+/* 249:    */                 else
+/* 250:    */                 {
+/* 251:227 */                   player.sendMessage("wither hashmap set to 0");
+/* 252:228 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".wither", Double.valueOf(0.0D));
+/* 253:    */                 }
+/* 254:231 */                 if (gearHarming != null)
+/* 255:    */                 {
+/* 256:232 */                   player.sendMessage("harming hashmap set to " + Integer.parseInt(gearHarming));
+/* 257:233 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".harming", Double.valueOf(Double.parseDouble(gearHarming)));
+/* 258:    */                 }
+/* 259:    */                 else
+/* 260:    */                 {
+/* 261:235 */                   player.sendMessage("harming hashmap set to 0");
+/* 262:236 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".harming", Double.valueOf(0.0D));
+/* 263:    */                 }
+/* 264:239 */                 if (gearBlind != null)
+/* 265:    */                 {
+/* 266:240 */                   player.sendMessage("blind hashmap set to " + Integer.parseInt(gearBlind));
+/* 267:241 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".blind", Double.valueOf(Double.parseDouble(gearBlind)));
+/* 268:    */                 }
+/* 269:    */                 else
+/* 270:    */                 {
+/* 271:243 */                   player.sendMessage("blind hashmap set to 0");
+/* 272:244 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".blind", Double.valueOf(0.0D));
+/* 273:    */                 }
+/* 274:247 */                 if (gearXPMultiplier != null)
+/* 275:    */                 {
+/* 276:248 */                   player.sendMessage("xpMultiplier hashmap set to " + Integer.parseInt(gearXPMultiplier));
+/* 277:249 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".xpMultiplier", Double.valueOf(Double.parseDouble(gearXPMultiplier)));
+/* 278:    */                 }
+/* 279:    */                 else
+/* 280:    */                 {
+/* 281:251 */                   player.sendMessage("xpMultiplier hashmap set to 0");
+/* 282:252 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".xpMultiplier", Double.valueOf(0.0D));
+/* 283:    */                 }
+/* 284:255 */                 if (gearSpeed != null)
+/* 285:    */                 {
+/* 286:256 */                   player.sendMessage("speed hashmap set to " + Integer.parseInt(gearSpeed));
+/* 287:257 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".speed", Double.valueOf(Double.parseDouble(gearSpeed)));
+/* 288:    */                 }
+/* 289:    */                 else
+/* 290:    */                 {
+/* 291:259 */                   player.sendMessage("speed hashmap set to 0");
+/* 292:260 */                   ItemLoreStats.plugin.setBonusesModifiers.put(player.getName() + ".speed", Double.valueOf(0.0D));
+/* 293:    */                 }
+/* 294:    */               }
+/* 295:    */             }
+/* 296:    */           }
+/* 297:    */         }
+/* 298:266 */         a--;
+/* 299:266 */         if (a < 0) {
+/* 300:    */           break;
+/* 301:    */         }
+/* 302:266 */       } while (a <= this.PlayerDataConfig.getKeys(false).size() - 1);
+/* 303:    */     }
+/* 304:    */     catch (Exception e)
+/* 305:    */     {
+/* 306:270 */       e.printStackTrace();
+/* 307:271 */       System.out.println("*********** Failed to load set bonus for " + player.getName() + "! ***********");
+/* 308:    */     }
+/* 309:    */   }
+/* 310:    */   
+/* 311:    */   public double checkHashMapArmour(Player player)
+/* 312:    */   {
+/* 313:276 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".armour") != null) {
+/* 314:277 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".armour")).doubleValue();
+/* 315:    */     }
+/* 316:279 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
+/* 317:280 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".armour")).doubleValue();
+/* 318:    */   }
+/* 319:    */   
+/* 320:    */   public double checkHashMapDodge(Player player)
+/* 321:    */   {
+/* 322:285 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".dodge") != null) {
+/* 323:286 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".dodge")).doubleValue();
+/* 324:    */     }
+/* 325:288 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
+/* 326:289 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".dodge")).doubleValue();
+/* 327:    */   }
+/* 328:    */   
+/* 329:    */   public double checkHashMapBlock(Player player)
+/* 330:    */   {
+/* 331:294 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".block") != null) {
+/* 332:295 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".block")).doubleValue();
+/* 333:    */     }
+/* 334:297 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
+/* 335:298 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".block")).doubleValue();
+/* 336:    */   }
+/* 337:    */   
+/* 338:    */   public double checkHashMapDamage(Player player)
+/* 339:    */   {
+/* 340:303 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".damage") != null) {
+/* 341:304 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".damage")).doubleValue();
+/* 342:    */     }
+/* 343:306 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
+/* 344:307 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".damage")).doubleValue();
+/* 345:    */   }
+/* 346:    */   
+/* 347:    */   public double checkHashMapCritChance(Player player)
+/* 348:    */   {
+/* 349:312 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".critChance") != null) {
+/* 350:313 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".critChance")).doubleValue();
+/* 351:    */     }
+/* 352:315 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
+/* 353:316 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".critChance")).doubleValue();
+/* 354:    */   }
+/* 355:    */   
+/* 356:    */   public double checkHashMapCritDamage(Player player)
+/* 357:    */   {
+/* 358:321 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".critDamage") != null) {
+/* 359:322 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".critDamage")).doubleValue();
+/* 360:    */     }
+/* 361:324 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
+/* 362:325 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".critDamage")).doubleValue();
+/* 363:    */   }
+/* 364:    */   
+/* 365:    */   public double checkHashMapHealth(Player player)
+/* 366:    */   {
+/* 367:330 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".health") != null) {
+/* 368:331 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".health")).doubleValue();
+/* 369:    */     }
+/* 370:333 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
+/* 371:334 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".health")).doubleValue();
+/* 372:    */   }
+/* 373:    */   
+/* 374:    */   public double checkHashMapHealthRegen(Player player)
+/* 375:    */   {
+/* 376:339 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".healthRegen") != null) {
+/* 377:340 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".healthRegen")).doubleValue();
+/* 378:    */     }
+/* 379:342 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
+/* 380:343 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".healthRegen")).doubleValue();
+/* 381:    */   }
+/* 382:    */   
+/* 383:    */   public double checkHashMapLifeSteal(Player player)
+/* 384:    */   {
+/* 385:348 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".lifeSteal") != null) {
+/* 386:349 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".lifeSteal")).doubleValue();
+/* 387:    */     }
+/* 388:351 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
+/* 389:352 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".lifeSteal")).doubleValue();
+/* 390:    */   }
+/* 391:    */   
+/* 392:    */   public double checkHashMapReflect(Player player)
+/* 393:    */   {
+/* 394:357 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".reflect") != null) {
+/* 395:358 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".reflect")).doubleValue();
+/* 396:    */     }
+/* 397:360 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
+/* 398:361 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".reflect")).doubleValue();
+/* 399:    */   }
+/* 400:    */   
+/* 401:    */   public double checkHashMapFire(Player player)
+/* 402:    */   {
+/* 403:366 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".fire") != null) {
+/* 404:367 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".fire")).doubleValue();
+/* 405:    */     }
+/* 406:369 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
+/* 407:370 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".fire")).doubleValue();
+/* 408:    */   }
+/* 409:    */   
+/* 410:    */   public double checkHashMapIce(Player player)
+/* 411:    */   {
+/* 412:375 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".ice") != null) {
+/* 413:376 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".ice")).doubleValue();
+/* 414:    */     }
+/* 415:378 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
+/* 416:379 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".ice")).doubleValue();
+/* 417:    */   }
+/* 418:    */   
+/* 419:    */   public double checkHashMapPoison(Player player)
+/* 420:    */   {
+/* 421:384 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".poison") != null) {
+/* 422:385 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".poison")).doubleValue();
+/* 423:    */     }
+/* 424:387 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
+/* 425:388 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".poison")).doubleValue();
+/* 426:    */   }
+/* 427:    */   
+/* 428:    */   public double checkHashMapWither(Player player)
+/* 429:    */   {
+/* 430:393 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".wither") != null) {
+/* 431:394 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".wither")).doubleValue();
+/* 432:    */     }
+/* 433:396 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
+/* 434:397 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".wither")).doubleValue();
+/* 435:    */   }
+/* 436:    */   
+/* 437:    */   public double checkHashMapHarming(Player player)
+/* 438:    */   {
+/* 439:402 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".harming") != null) {
+/* 440:403 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".harming")).doubleValue();
+/* 441:    */     }
+/* 442:405 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
+/* 443:406 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".harming")).doubleValue();
+/* 444:    */   }
+/* 445:    */   
+/* 446:    */   public double checkHashMapBlind(Player player)
+/* 447:    */   {
+/* 448:411 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".blind") != null) {
+/* 449:412 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".blind")).doubleValue();
+/* 450:    */     }
+/* 451:414 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
+/* 452:415 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".blind")).doubleValue();
+/* 453:    */   }
+/* 454:    */   
+/* 455:    */   public double checkHashMapXPMultiplier(Player player)
+/* 456:    */   {
+/* 457:420 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".xpMultiplier") != null) {
+/* 458:421 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".xpMultiplier")).doubleValue();
+/* 459:    */     }
+/* 460:423 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
+/* 461:424 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".xpMultiplier")).doubleValue();
+/* 462:    */   }
+/* 463:    */   
+/* 464:    */   public double checkHashMapSpeed(Player player)
+/* 465:    */   {
+/* 466:429 */     if (ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".speed") != null) {
+/* 467:430 */       return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".speed")).doubleValue();
+/* 468:    */     }
+/* 469:432 */     ItemLoreStats.plugin.setBonuses.updateSetBonus(player);
+/* 470:433 */     return ((Double)ItemLoreStats.plugin.setBonusesModifiers.get(player.getName() + ".speed")).doubleValue();
+/* 471:    */   }
+/* 472:    */ }
 
 
-/* Location:           C:\Users\Taggert\Downloads\ItemLoreStats.jar
+/* Location:           E:\ItemLoreStats.jar
  * Qualified Name:     com.github.supavitax.itemlorestats.SetBonuses
  * JD-Core Version:    0.7.0.1
  */

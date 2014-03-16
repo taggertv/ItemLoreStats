@@ -37,119 +37,119 @@
 /*  37:    */   private final File configurationFile;
 /*  38:    */   private final String guid;
 /*  39:    */   private final boolean debug;
-/*  40:103 */   private final Object optOutLock = new Object();
-/*  41:108 */   private volatile BukkitTask task = null;
+/*  40: 40 */   private final Object optOutLock = new Object();
+/*  41: 42 */   private volatile BukkitTask task = null;
 /*  42:    */   
 /*  43:    */   public MetricsLite(Plugin plugin)
 /*  44:    */     throws IOException
 /*  45:    */   {
-/*  46:111 */     if (plugin == null) {
-/*  47:112 */       throw new IllegalArgumentException("Plugin cannot be null");
+/*  46: 45 */     if (plugin == null) {
+/*  47: 46 */       throw new IllegalArgumentException("Plugin cannot be null");
 /*  48:    */     }
-/*  49:115 */     this.plugin = plugin;
+/*  49: 49 */     this.plugin = plugin;
 /*  50:    */     
-/*  51:    */ 
-/*  52:118 */     this.configurationFile = getConfigFile();
-/*  53:119 */     this.configuration = YamlConfiguration.loadConfiguration(this.configurationFile);
-/*  54:    */     
-/*  55:    */ 
-/*  56:122 */     this.configuration.addDefault("opt-out", Boolean.valueOf(false));
-/*  57:123 */     this.configuration.addDefault("guid", UUID.randomUUID().toString());
-/*  58:124 */     this.configuration.addDefault("debug", Boolean.valueOf(false));
-/*  59:127 */     if (this.configuration.get("guid", null) == null)
-/*  60:    */     {
-/*  61:128 */       this.configuration.options().header("http://mcstats.org").copyDefaults(true);
-/*  62:129 */       this.configuration.save(this.configurationFile);
-/*  63:    */     }
-/*  64:133 */     this.guid = this.configuration.getString("guid");
-/*  65:134 */     this.debug = this.configuration.getBoolean("debug", false);
-/*  66:    */   }
-/*  67:    */   
-/*  68:    */   public boolean start()
-/*  69:    */   {
-/*  70:145 */     synchronized (this.optOutLock)
-/*  71:    */     {
-/*  72:147 */       if (isOptOut())
-/*  73:    */       {
-/*  74:148 */         System.out.println("You have opted out of sending useful data to Mcstats.org");
-/*  75:149 */         return false;
-/*  76:    */       }
-/*  77:153 */       if (this.task != null) {
-/*  78:154 */         return true;
-/*  79:    */       }
-/*  80:158 */       this.task = this.plugin.getServer().getScheduler().runTaskTimerAsynchronously(this.plugin, new Runnable()
-/*  81:    */       {
-/*  82:160 */         private boolean firstPost = true;
-/*  83:    */         
-/*  84:    */         public void run()
-/*  85:    */         {
-/*  86:    */           try
-/*  87:    */           {
-/*  88:165 */             synchronized (MetricsLite.this.optOutLock)
-/*  89:    */             {
-/*  90:167 */               if ((MetricsLite.this.isOptOut()) && (MetricsLite.this.task != null))
-/*  91:    */               {
-/*  92:168 */                 MetricsLite.this.task.cancel();
-/*  93:169 */                 MetricsLite.this.task = null;
-/*  94:    */               }
-/*  95:    */             }
-/*  96:176 */             MetricsLite.this.postPlugin(!this.firstPost);
-/*  97:    */             
-/*  98:    */ 
-/*  99:    */ 
-/* 100:180 */             this.firstPost = false;
-/* 101:    */           }
-/* 102:    */           catch (IOException e)
-/* 103:    */           {
-/* 104:182 */             if (MetricsLite.this.debug) {
-/* 105:183 */               Bukkit.getLogger().log(Level.INFO, "[Metrics] " + e.getMessage());
-/* 106:    */             }
-/* 107:    */           }
-/* 108:    */         }
-/* 109:187 */       }, 0L, 18000L);
-/* 110:    */       
-/* 111:189 */       return true;
+/*  51: 51 */     this.configurationFile = getConfigFile();
+/*  52: 52 */     this.configuration = YamlConfiguration.loadConfiguration(this.configurationFile);
+/*  53:    */     
+/*  54: 54 */     this.configuration.addDefault("opt-out", Boolean.valueOf(false));
+/*  55: 55 */     this.configuration.addDefault("guid", UUID.randomUUID().toString());
+/*  56: 56 */     this.configuration.addDefault("debug", Boolean.valueOf(false));
+/*  57: 58 */     if (this.configuration.get("guid", null) == null)
+/*  58:    */     {
+/*  59: 59 */       this.configuration.options().header("http://mcstats.org").copyDefaults(true);
+/*  60: 60 */       this.configuration.save(this.configurationFile);
+/*  61:    */     }
+/*  62: 63 */     this.guid = this.configuration.getString("guid");
+/*  63: 64 */     this.debug = this.configuration.getBoolean("debug", false);
+/*  64:    */   }
+/*  65:    */   
+/*  66:    */   public boolean start()
+/*  67:    */   {
+/*  68: 69 */     synchronized (this.optOutLock)
+/*  69:    */     {
+/*  70: 71 */       if (isOptOut())
+/*  71:    */       {
+/*  72: 72 */         System.out.println("You have opted out of sending useful data to Mcstats.org");
+/*  73: 73 */         return false;
+/*  74:    */       }
+/*  75: 76 */       if (this.task != null) {
+/*  76: 77 */         return true;
+/*  77:    */       }
+/*  78: 80 */       this.task = this.plugin.getServer().getScheduler().runTaskTimerAsynchronously(this.plugin, new Runnable()
+/*  79:    */       {
+/*  80: 82 */         private boolean firstPost = true;
+/*  81:    */         
+/*  82:    */         public void run()
+/*  83:    */         {
+/*  84:    */           try
+/*  85:    */           {
+/*  86: 87 */             synchronized (MetricsLite.this.optOutLock)
+/*  87:    */             {
+/*  88: 89 */               if ((MetricsLite.this.isOptOut()) && (MetricsLite.this.task != null))
+/*  89:    */               {
+/*  90: 90 */                 MetricsLite.this.task.cancel();
+/*  91: 91 */                 MetricsLite.this.task = null;
+/*  92:    */               }
+/*  93:    */             }
+/*  94: 96 */             MetricsLite.this.postPlugin(!this.firstPost);
+/*  95:    */             
+/*  96: 98 */             this.firstPost = false;
+/*  97:    */           }
+/*  98:    */           catch (IOException e)
+/*  99:    */           {
+/* 100:100 */             if (MetricsLite.this.debug) {
+/* 101:101 */               Bukkit.getLogger().log(Level.INFO, "[Metrics] " + e.getMessage());
+/* 102:    */             }
+/* 103:    */           }
+/* 104:    */         }
+/* 105:101 */       }, 0L, 18000L);
+/* 106:    */       
+/* 107:    */ 
+/* 108:    */ 
+/* 109:    */ 
+/* 110:    */ 
+/* 111:107 */       return true;
 /* 112:    */     }
 /* 113:    */   }
 /* 114:    */   
 /* 115:    */   public boolean isOptOut()
 /* 116:    */   {
-/* 117:199 */     synchronized (this.optOutLock)
+/* 117:113 */     synchronized (this.optOutLock)
 /* 118:    */     {
 /* 119:    */       try
 /* 120:    */       {
-/* 121:202 */         this.configuration.load(getConfigFile());
+/* 121:116 */         this.configuration.load(getConfigFile());
 /* 122:    */       }
 /* 123:    */       catch (IOException ex)
 /* 124:    */       {
-/* 125:204 */         if (this.debug) {
-/* 126:205 */           Bukkit.getLogger().log(Level.INFO, "[Metrics] " + ex.getMessage());
+/* 125:118 */         if (this.debug) {
+/* 126:119 */           Bukkit.getLogger().log(Level.INFO, "[Metrics] " + ex.getMessage());
 /* 127:    */         }
-/* 128:207 */         return true;
+/* 128:121 */         return true;
 /* 129:    */       }
 /* 130:    */       catch (InvalidConfigurationException ex)
 /* 131:    */       {
-/* 132:209 */         if (this.debug) {
-/* 133:210 */           Bukkit.getLogger().log(Level.INFO, "[Metrics] " + ex.getMessage());
+/* 132:123 */         if (this.debug) {
+/* 133:124 */           Bukkit.getLogger().log(Level.INFO, "[Metrics] " + ex.getMessage());
 /* 134:    */         }
-/* 135:212 */         return true;
+/* 135:126 */         return true;
 /* 136:    */       }
-/* 137:214 */       return this.configuration.getBoolean("opt-out", false);
+/* 137:128 */       return this.configuration.getBoolean("opt-out", false);
 /* 138:    */     }
 /* 139:    */   }
 /* 140:    */   
 /* 141:    */   public void enable()
 /* 142:    */     throws IOException
 /* 143:    */   {
-/* 144:225 */     synchronized (this.optOutLock)
+/* 144:135 */     synchronized (this.optOutLock)
 /* 145:    */     {
-/* 146:227 */       if (isOptOut())
+/* 146:137 */       if (isOptOut())
 /* 147:    */       {
-/* 148:228 */         this.configuration.set("opt-out", Boolean.valueOf(false));
-/* 149:229 */         this.configuration.save(this.configurationFile);
+/* 148:138 */         this.configuration.set("opt-out", Boolean.valueOf(false));
+/* 149:139 */         this.configuration.save(this.configurationFile);
 /* 150:    */       }
-/* 151:233 */       if (this.task == null) {
-/* 152:234 */         start();
+/* 151:142 */       if (this.task == null) {
+/* 152:143 */         start();
 /* 153:    */       }
 /* 154:    */     }
 /* 155:    */   }
@@ -157,243 +157,252 @@
 /* 157:    */   public void disable()
 /* 158:    */     throws IOException
 /* 159:    */   {
-/* 160:246 */     synchronized (this.optOutLock)
+/* 160:150 */     synchronized (this.optOutLock)
 /* 161:    */     {
-/* 162:248 */       if (!isOptOut())
+/* 162:152 */       if (!isOptOut())
 /* 163:    */       {
-/* 164:249 */         this.configuration.set("opt-out", Boolean.valueOf(true));
-/* 165:250 */         this.configuration.save(this.configurationFile);
+/* 164:153 */         this.configuration.set("opt-out", Boolean.valueOf(true));
+/* 165:154 */         this.configuration.save(this.configurationFile);
 /* 166:    */       }
-/* 167:254 */       if (this.task != null)
+/* 167:157 */       if (this.task != null)
 /* 168:    */       {
-/* 169:255 */         this.task.cancel();
-/* 170:256 */         this.task = null;
+/* 169:158 */         this.task.cancel();
+/* 170:159 */         this.task = null;
 /* 171:    */       }
 /* 172:    */     }
 /* 173:    */   }
 /* 174:    */   
 /* 175:    */   public File getConfigFile()
 /* 176:    */   {
-/* 177:272 */     File pluginsFolder = this.plugin.getDataFolder().getParentFile();
+/* 177:166 */     File pluginsFolder = this.plugin.getDataFolder().getParentFile();
 /* 178:    */     
-/* 179:    */ 
-/* 180:275 */     return new File(new File(pluginsFolder, "PluginMetrics"), "config.yml");
-/* 181:    */   }
-/* 182:    */   
-/* 183:    */   private void postPlugin(boolean isPing)
-/* 184:    */     throws IOException
-/* 185:    */   {
-/* 186:283 */     PluginDescriptionFile description = this.plugin.getDescription();
-/* 187:284 */     String pluginName = description.getName();
-/* 188:285 */     boolean onlineMode = Bukkit.getServer().getOnlineMode();
-/* 189:286 */     String pluginVersion = description.getVersion();
-/* 190:287 */     String serverVersion = Bukkit.getVersion();
-/* 191:288 */     int playersOnline = Bukkit.getServer().getOnlinePlayers().length;
-/* 192:    */     
-/* 193:    */ 
-/* 194:    */ 
-/* 195:    */ 
-/* 196:293 */     StringBuilder json = new StringBuilder(1024);
-/* 197:294 */     json.append('{');
-/* 198:    */     
-/* 199:    */ 
-/* 200:297 */     appendJSONPair(json, "guid", this.guid);
-/* 201:298 */     appendJSONPair(json, "plugin_version", pluginVersion);
-/* 202:299 */     appendJSONPair(json, "server_version", serverVersion);
-/* 203:300 */     appendJSONPair(json, "players_online", Integer.toString(playersOnline));
-/* 204:    */     
-/* 205:    */ 
-/* 206:303 */     String osname = System.getProperty("os.name");
-/* 207:304 */     String osarch = System.getProperty("os.arch");
-/* 208:305 */     String osversion = System.getProperty("os.version");
-/* 209:306 */     String java_version = System.getProperty("java.version");
-/* 210:307 */     int coreCount = Runtime.getRuntime().availableProcessors();
-/* 211:310 */     if (osarch.equals("amd64")) {
-/* 212:311 */       osarch = "x86_64";
-/* 213:    */     }
-/* 214:314 */     appendJSONPair(json, "osname", osname);
-/* 215:315 */     appendJSONPair(json, "osarch", osarch);
-/* 216:316 */     appendJSONPair(json, "osversion", osversion);
-/* 217:317 */     appendJSONPair(json, "cores", Integer.toString(coreCount));
-/* 218:318 */     appendJSONPair(json, "auth_mode", onlineMode ? "1" : "0");
-/* 219:319 */     appendJSONPair(json, "java_version", java_version);
-/* 220:322 */     if (isPing) {
-/* 221:323 */       appendJSONPair(json, "ping", "1");
-/* 222:    */     }
-/* 223:327 */     json.append('}');
-/* 224:    */     
-/* 225:    */ 
-/* 226:330 */     URL url = new URL("http://report.mcstats.org" + String.format("/plugin/%s", new Object[] { urlEncode(pluginName) }));
-/* 227:    */     URLConnection connection;
-/* 228:    */     URLConnection connection;
-/* 229:337 */     if (isMineshafterPresent()) {
-/* 230:338 */       connection = url.openConnection(Proxy.NO_PROXY);
-/* 231:    */     } else {
-/* 232:340 */       connection = url.openConnection();
-/* 233:    */     }
-/* 234:344 */     byte[] uncompressed = json.toString().getBytes();
-/* 235:345 */     byte[] compressed = gzip(json.toString());
+/* 179:168 */     return new File(new File(pluginsFolder, "PluginMetrics"), "config.yml");
+/* 180:    */   }
+/* 181:    */   
+/* 182:    */   private void postPlugin(boolean isPing)
+/* 183:    */     throws IOException
+/* 184:    */   {
+/* 185:174 */     PluginDescriptionFile description = this.plugin.getDescription();
+/* 186:175 */     String pluginName = description.getName();
+/* 187:176 */     boolean onlineMode = Bukkit.getServer().getOnlineMode();
+/* 188:177 */     String pluginVersion = description.getVersion();
+/* 189:178 */     String serverVersion = Bukkit.getVersion();
+/* 190:179 */     int playersOnline = Bukkit.getServer().getOnlinePlayers().length;
+/* 191:    */     
+/* 192:181 */     StringBuilder json = new StringBuilder(1024);
+/* 193:182 */     json.append('{');
+/* 194:    */     
+/* 195:184 */     appendJSONPair(json, "guid", this.guid);
+/* 196:185 */     appendJSONPair(json, "plugin_version", pluginVersion);
+/* 197:186 */     appendJSONPair(json, "server_version", serverVersion);
+/* 198:187 */     appendJSONPair(json, "players_online", Integer.toString(playersOnline));
+/* 199:    */     
+/* 200:189 */     String osname = System.getProperty("os.name");
+/* 201:190 */     String osarch = System.getProperty("os.arch");
+/* 202:191 */     String osversion = System.getProperty("os.version");
+/* 203:192 */     String java_version = System.getProperty("java.version");
+/* 204:193 */     int coreCount = Runtime.getRuntime().availableProcessors();
+/* 205:195 */     if (osarch.equals("amd64")) {
+/* 206:196 */       osarch = "x86_64";
+/* 207:    */     }
+/* 208:199 */     appendJSONPair(json, "osname", osname);
+/* 209:200 */     appendJSONPair(json, "osarch", osarch);
+/* 210:201 */     appendJSONPair(json, "osversion", osversion);
+/* 211:202 */     appendJSONPair(json, "cores", Integer.toString(coreCount));
+/* 212:203 */     appendJSONPair(json, "auth_mode", onlineMode ? "1" : "0");
+/* 213:204 */     appendJSONPair(json, "java_version", java_version);
+/* 214:206 */     if (isPing) {
+/* 215:207 */       appendJSONPair(json, "ping", "1");
+/* 216:    */     }
+/* 217:210 */     json.append('}');
+/* 218:    */     
+/* 219:212 */     URL url = new URL("http://report.mcstats.org" + String.format("/plugin/%s", new Object[] { urlEncode(pluginName) }));
+/* 220:    */     URLConnection connection;
+/* 221:    */     URLConnection connection;
+/* 222:214 */     if (isMineshafterPresent()) {
+/* 223:215 */       connection = url.openConnection(Proxy.NO_PROXY);
+/* 224:    */     } else {
+/* 225:217 */       connection = url.openConnection();
+/* 226:    */     }
+/* 227:220 */     byte[] uncompressed = json.toString().getBytes();
+/* 228:221 */     byte[] compressed = gzip(json.toString());
+/* 229:    */     
+/* 230:223 */     connection.addRequestProperty("User-Agent", "MCStats/7");
+/* 231:224 */     connection.addRequestProperty("Content-Type", "application/json");
+/* 232:225 */     connection.addRequestProperty("Content-Encoding", "gzip");
+/* 233:226 */     connection.addRequestProperty("Content-Length", Integer.toString(compressed.length));
+/* 234:227 */     connection.addRequestProperty("Accept", "application/json");
+/* 235:228 */     connection.addRequestProperty("Connection", "close");
 /* 236:    */     
-/* 237:    */ 
-/* 238:348 */     connection.addRequestProperty("User-Agent", "MCStats/7");
-/* 239:349 */     connection.addRequestProperty("Content-Type", "application/json");
-/* 240:350 */     connection.addRequestProperty("Content-Encoding", "gzip");
-/* 241:351 */     connection.addRequestProperty("Content-Length", Integer.toString(compressed.length));
-/* 242:352 */     connection.addRequestProperty("Accept", "application/json");
-/* 243:353 */     connection.addRequestProperty("Connection", "close");
+/* 237:230 */     connection.setDoOutput(true);
+/* 238:232 */     if (this.debug) {
+/* 239:233 */       System.out.println("[Metrics] Prepared request for " + pluginName + " uncompressed=" + uncompressed.length + " compressed=" + compressed.length);
+/* 240:    */     }
+/* 241:236 */     OutputStream os = connection.getOutputStream();
+/* 242:237 */     os.write(compressed);
+/* 243:238 */     os.flush();
 /* 244:    */     
-/* 245:355 */     connection.setDoOutput(true);
-/* 246:357 */     if (this.debug) {
-/* 247:358 */       System.out.println("[Metrics] Prepared request for " + pluginName + " uncompressed=" + uncompressed.length + " compressed=" + compressed.length);
-/* 248:    */     }
-/* 249:362 */     OutputStream os = connection.getOutputStream();
-/* 250:363 */     os.write(compressed);
-/* 251:364 */     os.flush();
-/* 252:    */     
-/* 253:    */ 
-/* 254:367 */     BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-/* 255:368 */     String response = reader.readLine();
-/* 256:    */     
-/* 257:    */ 
-/* 258:371 */     os.close();
-/* 259:372 */     reader.close();
-/* 260:374 */     if ((response == null) || (response.startsWith("ERR")) || (response.startsWith("7")))
-/* 261:    */     {
-/* 262:375 */       if (response == null) {
-/* 263:376 */         response = "null";
-/* 264:377 */       } else if (response.startsWith("7")) {
-/* 265:378 */         response = response.substring(response.startsWith("7,") ? 2 : 1);
-/* 266:    */       }
-/* 267:381 */       throw new IOException(response);
-/* 268:    */     }
-/* 269:    */   }
-/* 270:    */   
-/* 271:    */   public static byte[] gzip(String input)
-/* 272:    */   {
-/* 273:392 */     ByteArrayOutputStream baos = new ByteArrayOutputStream();
-/* 274:393 */     GZIPOutputStream gzos = null;
-/* 275:    */     try
-/* 276:    */     {
-/* 277:396 */       gzos = new GZIPOutputStream(baos);
-/* 278:397 */       gzos.write(input.getBytes("UTF-8"));
-/* 279:    */     }
-/* 280:    */     catch (IOException e)
-/* 281:    */     {
-/* 282:399 */       e.printStackTrace();
-/* 283:401 */       if (gzos != null) {
-/* 284:    */         try
-/* 285:    */         {
-/* 286:402 */           gzos.close();
-/* 287:    */         }
-/* 288:    */         catch (IOException localIOException1) {}
-/* 289:    */       }
-/* 290:    */     }
-/* 291:    */     finally
-/* 292:    */     {
-/* 293:401 */       if (gzos != null) {
+/* 245:240 */     BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+/* 246:241 */     String response = reader.readLine();
+/* 247:    */     
+/* 248:243 */     os.close();
+/* 249:244 */     reader.close();
+/* 250:246 */     if ((response == null) || (response.startsWith("ERR")) || (response.startsWith("7")))
+/* 251:    */     {
+/* 252:247 */       if (response == null) {
+/* 253:248 */         response = "null";
+/* 254:249 */       } else if (response.startsWith("7")) {
+/* 255:250 */         response = response.substring(response.startsWith("7,") ? 2 : 1);
+/* 256:    */       }
+/* 257:253 */       throw new IOException(response);
+/* 258:    */     }
+/* 259:    */   }
+/* 260:    */   
+/* 261:    */   public static byte[] gzip(String input)
+/* 262:    */   {
+/* 263:259 */     baos = new ByteArrayOutputStream();
+/* 264:260 */     GZIPOutputStream gzos = null;
+/* 265:    */     try
+/* 266:    */     {
+/* 267:263 */       gzos = new GZIPOutputStream(baos);
+/* 268:264 */       gzos.write(input.getBytes("UTF-8"));
+/* 269:    */       
+/* 270:    */ 
+/* 271:    */ 
+/* 272:    */ 
+/* 273:    */ 
+/* 274:    */ 
+/* 275:    */ 
+/* 276:    */ 
+/* 277:    */ 
+/* 278:    */ 
+/* 279:    */ 
+/* 280:    */ 
+/* 281:    */ 
+/* 282:    */ 
+/* 283:    */ 
+/* 284:    */ 
+/* 285:    */ 
+/* 286:    */ 
+/* 287:    */ 
+/* 288:284 */       return baos.toByteArray();
+/* 289:    */     }
+/* 290:    */     catch (IOException e)
+/* 291:    */     {
+/* 292:266 */       e.printStackTrace();
+/* 293:268 */       if (gzos != null) {
 /* 294:    */         try
 /* 295:    */         {
-/* 296:402 */           gzos.close();
+/* 296:269 */           gzos.close();
 /* 297:    */         }
-/* 298:    */         catch (IOException localIOException2) {}
+/* 298:    */         catch (IOException localIOException1) {}
 /* 299:    */       }
 /* 300:    */     }
-/* 301:407 */     return baos.toByteArray();
-/* 302:    */   }
-/* 303:    */   
-/* 304:    */   private boolean isMineshafterPresent()
-/* 305:    */   {
-/* 306:    */     try
-/* 307:    */     {
-/* 308:417 */       Class.forName("mineshafter.MineServer");
-/* 309:418 */       return true;
+/* 301:    */     finally
+/* 302:    */     {
+/* 303:277 */       if (gzos != null) {
+/* 304:    */         try
+/* 305:    */         {
+/* 306:278 */           gzos.close();
+/* 307:    */         }
+/* 308:    */         catch (IOException localIOException2) {}
+/* 309:    */       }
 /* 310:    */     }
-/* 311:    */     catch (Exception e) {}
-/* 312:420 */     return false;
-/* 313:    */   }
-/* 314:    */   
-/* 315:    */   private static void appendJSONPair(StringBuilder json, String key, String value)
-/* 316:    */     throws UnsupportedEncodingException
-/* 317:    */   {
-/* 318:433 */     boolean isValueNumeric = false;
-/* 319:    */     try
-/* 320:    */     {
-/* 321:436 */       if ((value.equals("0")) || (!value.endsWith("0")))
-/* 322:    */       {
-/* 323:437 */         Double.parseDouble(value);
-/* 324:438 */         isValueNumeric = true;
-/* 325:    */       }
-/* 326:    */     }
-/* 327:    */     catch (NumberFormatException e)
-/* 328:    */     {
-/* 329:441 */       isValueNumeric = false;
-/* 330:    */     }
-/* 331:444 */     if (json.charAt(json.length() - 1) != '{') {
-/* 332:445 */       json.append(',');
-/* 333:    */     }
-/* 334:448 */     json.append(escapeJSON(key));
-/* 335:449 */     json.append(':');
-/* 336:451 */     if (isValueNumeric) {
-/* 337:452 */       json.append(value);
-/* 338:    */     } else {
-/* 339:454 */       json.append(escapeJSON(value));
-/* 340:    */     }
-/* 341:    */   }
-/* 342:    */   
-/* 343:    */   private static String escapeJSON(String text)
-/* 344:    */   {
-/* 345:465 */     StringBuilder builder = new StringBuilder();
-/* 346:    */     
-/* 347:467 */     builder.append('"');
-/* 348:468 */     for (int index = 0; index < text.length(); index++)
-/* 349:    */     {
-/* 350:469 */       char chr = text.charAt(index);
-/* 351:471 */       switch (chr)
-/* 352:    */       {
-/* 353:    */       case '"': 
-/* 354:    */       case '\\': 
-/* 355:474 */         builder.append('\\');
-/* 356:475 */         builder.append(chr);
-/* 357:476 */         break;
-/* 358:    */       case '\b': 
-/* 359:478 */         builder.append("\\b");
-/* 360:479 */         break;
-/* 361:    */       case '\t': 
-/* 362:481 */         builder.append("\\t");
-/* 363:482 */         break;
-/* 364:    */       case '\n': 
-/* 365:484 */         builder.append("\\n");
-/* 366:485 */         break;
-/* 367:    */       case '\r': 
-/* 368:487 */         builder.append("\\r");
-/* 369:488 */         break;
-/* 370:    */       default: 
-/* 371:490 */         if (chr < ' ')
-/* 372:    */         {
-/* 373:491 */           String t = "000" + Integer.toHexString(chr);
-/* 374:492 */           builder.append("\\u" + t.substring(t.length() - 4));
-/* 375:    */         }
-/* 376:    */         else
-/* 377:    */         {
-/* 378:494 */           builder.append(chr);
-/* 379:    */         }
-/* 380:    */         break;
-/* 381:    */       }
-/* 382:    */     }
-/* 383:499 */     builder.append('"');
-/* 384:    */     
-/* 385:501 */     return builder.toString();
-/* 386:    */   }
-/* 387:    */   
-/* 388:    */   private static String urlEncode(String text)
-/* 389:    */     throws UnsupportedEncodingException
-/* 390:    */   {
-/* 391:511 */     return URLEncoder.encode(text, "UTF-8");
-/* 392:    */   }
-/* 393:    */ }
+/* 311:    */   }
+/* 312:    */   
+/* 313:    */   private boolean isMineshafterPresent()
+/* 314:    */   {
+/* 315:    */     try
+/* 316:    */     {
+/* 317:291 */       Class.forName("mineshafter.MineServer");
+/* 318:292 */       return true;
+/* 319:    */     }
+/* 320:    */     catch (Exception e) {}
+/* 321:294 */     return false;
+/* 322:    */   }
+/* 323:    */   
+/* 324:    */   private static void appendJSONPair(StringBuilder json, String key, String value)
+/* 325:    */     throws UnsupportedEncodingException
+/* 326:    */   {
+/* 327:300 */     boolean isValueNumeric = false;
+/* 328:    */     try
+/* 329:    */     {
+/* 330:303 */       if ((value.equals("0")) || (!value.endsWith("0")))
+/* 331:    */       {
+/* 332:304 */         Double.parseDouble(value);
+/* 333:305 */         isValueNumeric = true;
+/* 334:    */       }
+/* 335:    */     }
+/* 336:    */     catch (NumberFormatException e)
+/* 337:    */     {
+/* 338:308 */       isValueNumeric = false;
+/* 339:    */     }
+/* 340:311 */     if (json.charAt(json.length() - 1) != '{') {
+/* 341:312 */       json.append(',');
+/* 342:    */     }
+/* 343:315 */     json.append(escapeJSON(key));
+/* 344:316 */     json.append(':');
+/* 345:318 */     if (isValueNumeric) {
+/* 346:319 */       json.append(value);
+/* 347:    */     } else {
+/* 348:321 */       json.append(escapeJSON(value));
+/* 349:    */     }
+/* 350:    */   }
+/* 351:    */   
+/* 352:    */   private static String escapeJSON(String text)
+/* 353:    */   {
+/* 354:326 */     StringBuilder builder = new StringBuilder();
+/* 355:    */     
+/* 356:328 */     builder.append('"');
+/* 357:329 */     for (int index = 0; index < text.length(); index++)
+/* 358:    */     {
+/* 359:330 */       char chr = text.charAt(index);
+/* 360:332 */       switch (chr)
+/* 361:    */       {
+/* 362:    */       case '"': 
+/* 363:    */       case '\\': 
+/* 364:335 */         builder.append('\\');
+/* 365:336 */         builder.append(chr);
+/* 366:337 */         break;
+/* 367:    */       case '\b': 
+/* 368:339 */         builder.append("\\b");
+/* 369:340 */         break;
+/* 370:    */       case '\t': 
+/* 371:342 */         builder.append("\\t");
+/* 372:343 */         break;
+/* 373:    */       case '\n': 
+/* 374:345 */         builder.append("\\n");
+/* 375:346 */         break;
+/* 376:    */       case '\r': 
+/* 377:348 */         builder.append("\\r");
+/* 378:349 */         break;
+/* 379:    */       default: 
+/* 380:351 */         if (chr < ' ')
+/* 381:    */         {
+/* 382:352 */           String t = "000" + Integer.toHexString(chr);
+/* 383:353 */           builder.append("\\u" + t.substring(t.length() - 4));
+/* 384:    */         }
+/* 385:    */         else
+/* 386:    */         {
+/* 387:355 */           builder.append(chr);
+/* 388:    */         }
+/* 389:    */         break;
+/* 390:    */       }
+/* 391:    */     }
+/* 392:360 */     builder.append('"');
+/* 393:    */     
+/* 394:362 */     return builder.toString();
+/* 395:    */   }
+/* 396:    */   
+/* 397:    */   private static String urlEncode(String text)
+/* 398:    */     throws UnsupportedEncodingException
+/* 399:    */   {
+/* 400:368 */     return URLEncoder.encode(text, "UTF-8");
+/* 401:    */   }
+/* 402:    */ }
 
 
-/* Location:           C:\Users\Taggert\Downloads\ItemLoreStats.jar
+/* Location:           E:\ItemLoreStats.jar
  * Qualified Name:     com.github.supavitax.itemlorestats.MetricsLite
  * JD-Core Version:    0.7.0.1
  */
