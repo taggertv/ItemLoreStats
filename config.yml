@@ -1,0 +1,369 @@
+# Default config for ItemLoreStats.
+
+# checkForUpdates - As I update Item Lore Stats often I've noticed that there are quite a a lot running out-of-date versions of Item Lore Stats. This will help server owners keep Item Lore Stats up to date. If there is an update available it will notify any Ops or any players with the ils.admin permission. I recommend you set this to true just to notify any ops or players/groups with ils.admin that there is a new version of Item Lore Stats available.
+
+# languageFile - This is the default language file loaded for in-game messages. This can be "language-en", "language-de, "language-pl".
+
+# usingMcMMO - If you are using McMMO then this will disable the durability stat as it conflicts with McMMO. (Boolean)
+
+# addRandomLore - If set to true this will grab a random lore from the "randomLore" section in the config to the item that drops (These are not stats). (Boolean)
+
+# randomApplyChance - This is the percentage chance that a stat will be applied when using STATRandomApply in the Mob configs. (Integer)
+
+# dropCustomILSLoot - This will generate loot from the mob configs in /SavedMobs/ and add them to the loot list when a mob is killed. (Boolean)
+
+# healthPerLevel - This is extra hp that is added to the players health for each level (level x healthPerLevel = bonus health). (Double)
+
+# baseHealth - This is the default health of every player before equipping gear. Set to 0 to disable additional base health (disabling this will disable the Health stat). (Double)
+
+# baseHealthRegen - This is the default health regen of every player before equipping gear. It is also added to the value gained from gear. Set to 0 to disable additional base health regen. (Double)
+
+# healthScale - This is the scale of the health bar e.g. if player has 100 hp then 20 will set each heart to the value of 10 health. Set to 0 to disable health scaling. (Integer)
+
+# baseCritDamage - This is the default crit damage every player will have without any gear equipped (If a weapon crit with 100 damage, the damage dealth would be 150). (Double)
+
+# lifeStealHeal - This is the percentage of the weapon damage that the attacker will be healed for when they successfully steal health. (Double)
+
+# displayDurabilityWarnings - This will show a messaged in the chat box when an item has 75%, 50%, and 25% durability to alert the player. (Boolean)
+
+# disabledInWorlds - The worlds listed will prevent any functions from Item Lore Stats from triggering.
+
+# combatMessages - This allows full control of all of the combat messages. This offers individual messages for the attacker and a message for the victim. Outgoing is for the attacker and incoming is for the victim.
+
+# prefix - These are used to grab a random prefix for a specified item in the mob configs when it when it drops.
+
+# suffix - These are used to grab a random suffix for a specified item in the mob configs when it when it drops.
+
+# statNames - This allows customisation to what will be read from the tooltips. So if you would like the Health: +10 on the tooltip to be displayed as HP: +10 then you would change health: Health to health: HP.
+
+# environmentalDamage - These are the damage values for environmental damage. They are all a percentage of the players health and are required due to the change of health from gear. (Percentage)
+
+# defaultCraftedDurability - This will add a random amount of durability from the range specified. IF YOU DON'T ADD A VALUE CRAFTED WEAPONS WILL BE UNBREAKABLE!. This can include colour codes.
+
+# durabilityAddedOnEachRepair - This is the amount of durability that will be repaired when repairing the item. The repairBlock setting uses the material name so something like IRON_BLOCK or ANVIL. 
+
+# durabilityLoss - Each hit will reduce the durability by the value listed here. This new durability system only takes affect in combat. If you want to reduce the durability then you need to increase the values. The enchant section is the percentage chance to prevent durability loss with each hit.
+
+checkForUpdates: true
+languageFile: language-en
+usingMcMMO: false
+dropCustomILSLoot: true
+addRandomLore: true
+randomApplyChance: 60
+healthPerLevel: 6
+baseHealth: 20
+baseHealthRegen: 2
+healthScale: 20
+baseCritDamage: 50
+lifeStealHeal: 0.15
+displayDurabilityWarnings:
+  enable75%DurabilityWarning: false
+  enable50%DurabilityWarning: true
+  enable25%DurabilityWarning: true
+disabledInWorlds:
+  - worldNEW
+
+version: 284
+
+combatMessages:
+  outgoing:
+    damageDone: true
+    enemyDodgedAttack: true
+    enemyBlockedAttack: true
+    critStrike: true
+    lifeSteal: true
+    enemyReflectedAttack: true
+    fire: true
+    ice: true
+    poison: true
+    wither: true
+    harm: true
+    blind: true
+  incoming:
+    damageTaken: false
+    dodgeAttack: true
+    blockAttack: true
+    enemyCritStrike: false
+    enemyLifeSteal: true
+    reflectAttack: true
+    enemyFire: true
+    enemyIce: true
+    enemyPoison: false
+    enemyWither: false
+    enemyHarm: false
+    enemyBlind: false
+
+prefix:
+  armour: 
+   - '&3Shielded'
+  dodge: 
+   - '&3Eluding'
+  block: 
+   - '&3Impeding'
+  critChance: 
+   - '&3Lethal'
+  critDamage: 
+   - '&3Lethal'
+  healthRegen: 
+   - '&3Regenerating'
+  lifeSteal: 
+   - '&aLife Stealing'
+  reflect: 
+   - '&eReflecting'
+  fire: 
+   - '&cFlaming'
+  ice: 
+   - '&9Freezing'
+  poison: 
+   - '&2Toxic'
+  wither: 
+   - '&fCorrupted'
+  harming: 
+   - '&5Crippling'
+  blind: 
+   - '&7Visionless'
+  movementSpeed: 
+   - '&6Swift'
+  xpmultiplier:
+   - '&dPremium'
+  random:
+   - 'Angelic'
+   - 'Brutal'
+   - 'Cursed'
+   - 'Empowered'
+   - 'Fine'
+   - 'Gleaming'
+   - 'Heavy'
+   - 'Perfect'
+   - 'Sharp'
+   - 'Standard'
+   - 'Worn'
+   - 'Light'
+   - 'Smooth'
+   - 'Slick'
+   - 'Hard'
+   - 'Thick'
+   - 'Grim'
+ 
+suffix:
+  armour: 
+   - '&3of Protection'
+  dodge: 
+   - '&3of Evasion'
+  block: 
+   - '&3of the Blockade'
+  critChance: 
+   - '&3of Deep Wounds'
+  critDamage: 
+   - '&3of Deep Wounds'
+  healthRegen: 
+   - '&3of Regeneration'
+  lifeSteal: 
+   - '&aof Soul Draining'
+  reflect: 
+   - '&eof Reflection'
+  fire: 
+   - '&cof the Inferno'
+  ice: 
+   - '&9of the Blizzard'
+  poison: 
+   - '&2of Poison'
+  wither: 
+   - '&fof Corruption'
+  harming: 
+   - '&5of Harming'
+  blind: 
+   - '&7of Blinding'
+  movementSpeed: 
+   - '&6of Swiftness'
+  xpmultiplier:
+   - '&dof Rewarding'
+  random:
+   - 'of Chaos'
+   - 'of Destruction'
+   - 'of Murder'
+   - 'of Power'
+   - 'of Silence'
+   - 'of Sorrows'
+   - 'of Terror'
+   - 'of Thunder'
+   - 'of the Ancients'
+   - 'of the UnderWorld'
+   - 'of the Wilderness'
+ 
+randomLore:
+  tools:
+    bow: 
+      - '&cCrafted with the essence of the Ancient Tree.'
+      - '&aThe corruption has weakened this {item}.'
+      - '&9This lightweight {item} is easy to carry.'
+    stick: 
+      - '&cCrafted with the essence of the Ancient Tree.'
+      - '&aThe corruption have weakened this {item}.'
+      - '&9This lightweight {item} is easy to carry.'
+    wood:
+      - '&cCrafted with the essence of the Ancient Tree.'
+      - '&aThe corruption has weakened this {item}.'
+      - '&9This lightweight {item} is easy to carry.'
+    stone:
+      - '&cThis {item} is crafted from local materials.'
+      - '&aThis {item} is fairly strong.'
+      - '&9This {item} was originally much sharper.'
+    iron:
+      - '&cThe blade on this {item} is very sharp.'
+      - '&aThe {item} is rusty.'
+      - '&9This {item} has been forged by a decent blacksmith.'
+    gold:
+      - '&cCrafted with valuable materials.'
+      - '&aForged for the Great King.'
+      - '&9Weak materials make this {item} weak.'
+    diamond:
+      - '&cThe hilt has a symbol engraved into it.'
+      - '&aCrafted with the finest materials of the land.'
+      - '&9This {item} is very strong.'
+  armour:
+    leather:
+      - '&cMade from Horse hide.'
+      - '&aMade from Cow hide.'
+      - '&9This lightweight {item} offers basic protection.'
+    iron:
+      - '&cThis {item} offers very good protection.'
+      - '&aThe {item} is strong.'
+      - '&9This {item} has been forged by a decent blacksmith.'
+    gold:
+      - '&cThis {item} offers decent protection.'
+      - '&aCrafted from very valuable materials.'
+      - '&9Weak materials make this {item} weak.'
+    diamond:
+      - '&cThis {item} offers excellent protection.'
+      - '&aCrafted with the finest materials of the land.'
+      - '&9This {item} is very strong.'
+
+statNames:
+  armour: "&3Armour"
+  dodge: "&3Dodge"
+  block: "&3Block"
+  critChance: "&3Crit Chance"
+  critDamage: "&3Crit Damage"
+  damage: "&3Damage"
+  health: "&3Health"
+  healthregen: "&3Health Regen"
+  lifesteal: "&aLife Steal"
+  lifestealheal: "&aLife Steal Amount"
+  reflect: "&eReflect"
+  fire: "&cIgnition"
+  ice: "&9Slow"
+  poison: "&2Poison"
+  wither: "&fWither"
+  harming: "&5Harming"
+  blind: "&7Blind"
+  movementspeed: "&6Speed"
+  xpmultiplier: "&dXP Bonus"
+  weaponspeed: "&bWeapon Speed"
+  pvpdamage: "&6PvP Dmg Modifier"
+  pvedamage: "&2PvE Dmg Modifier"
+  xplevel: "&3Level"
+  soulbound: "&3Bound to"
+  durability: "&8Durability"
+  class: 
+    class: "&3Class"
+    classList: 
+      - '&4Warrior'
+      - '&bMage'
+      - '&6Thief'
+  setbonus: "&6Set Bonus"
+  spells:
+    tnt: 
+      tnt: "Living Bomb"
+      cooldown: 15
+      detonationTime: 5
+      speed: 3
+    fireball:
+      fireball: "Fireball"
+      cooldown: 15
+      speed: 3
+    lightning:
+      lightning: "Lightning"
+      cooldown: 15
+    frostbolt:
+      frostbolt: "Frostbolt"
+      cooldown: 15
+      speed: 3
+  
+environmentalDamage:
+  block_explosion: 20
+  cactus: 5
+  drowning: 10
+  entity_explosion: 20
+  fall: 20
+  fire: 5
+  fire_tick: 5
+  lava: 20
+  lightning: 25
+  magic: 5
+  poison: 5
+  starvation: 5
+  suffocation: 5
+  thorns: 2
+  
+defaultCraftedDurability:
+  enableDurabilityOnCrafted: true
+  tools:
+    bow: '&7150-250'
+    shears: '&770-130'
+    stick: '&750-50'
+    flintAndSteel: '&730-60'
+    fishingRod: '&730-80'
+    carrotStick: '&725-50'
+    wood: '&7150-300'
+    stone: '&7250-350'
+    iron: '&7300-600'
+    gold: '&7550-750'
+    diamond: '&7700-1100'
+  armour:
+    leather: '&71300-1450'
+    iron: '&71700-2300'
+    gold: '&72200-2500'
+    diamond: '&72400-3200'
+    
+durabilityAddedOnEachRepair:
+  repairBlock: WORKBENCH
+  tools:
+    bow: 75
+    shears: 35
+    stick: 25
+    flintAndSteel: 15
+    fishingRod: 15
+    carrotStick: 13
+    wood: 75
+    stone: 125
+    iron: 150
+    gold: 275
+    diamond: 350
+  armour:
+    leather: 650
+    iron: 850
+    gold: 1100
+    diamond: 1200
+    
+durabilityLoss:
+  enchant:
+    unbreakingOne: 33
+    unbreakingTwo: 66
+    unbreakingThree: 100
+    
+npcModifier:
+  worldNEW:
+    healthMultiplier: 0.045
+    damageMultiplier: 0.004
+    location:
+      x: 0
+      y: 65
+      z: 0
+  worldNEW_NETHER:
+    healthMultiplier: 0.055
+    damageMultiplier: 0.0045
+    location:
+      x: 0
+      y: 65
+      z: 0

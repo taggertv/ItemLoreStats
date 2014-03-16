@@ -1,0 +1,15 @@
+main: com.github.supavitax.itemlorestats.ItemLoreStats
+name: ItemLoreStats
+version: 2.84
+author: Supavitax
+website: http://dev.bukkit.org/profiles/Supavitax/
+description: Increase attributes with item lore stats
+
+commands:
+  ils:
+    description: This server is running ItemLoreStats.
+    
+permissions:
+  ils.admin: 
+    description: Player/group is granted admin privilege.
+    default: op
